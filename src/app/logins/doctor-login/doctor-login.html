@@ -1,1 +1,19 @@
-<p>doctor-login works!</p>
+<div class="doctor-login-container">
+  <div class="doctor-login-header">
+    <img src="assets/logo.png" alt="Logo Gotitas Dentales" class="doctor-login-logo">
+    <h1 class="doctor-login-titulo">Ingreso Doctor</h1>
+    <p class="doctor-login-descripcion">
+      Ingresa con tu correo institucional y contraseña para acceder al módulo de doctores de Gotitas Dentales.
+    </p>
+  </div>
+  <form class="doctor-login-form">
+    <label for="correo" class="doctor-login-label">Correo Institucional</label>
+    <input type="email" id="correo" name="correo" class="doctor-login-input" placeholder="ejemplo@gotitas.edu.ec" required>
+
+    <label for="password" class="doctor-login-label">Contraseña</label>
+    <input type="password" id="password" name="password" class="doctor-login-input" placeholder="Contraseña" required>
+
+    <button type="submit" class="doctor-login-btn">Ingresar</button>
+    <a href="/recuperaciondoctor" class="doctor-login-olvide">Olvidé mi contraseña</a>
+  </form>
+</div>

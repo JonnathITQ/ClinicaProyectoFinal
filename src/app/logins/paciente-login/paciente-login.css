@@ -1,0 +1,138 @@
+body {
+  background: linear-gradient(135deg, #b3e5fc 0%, #e3f2fd 100%);
+  min-height: 100vh;
+}
+
+.paciente-login-container {
+  max-width: 420px;
+  margin: 3.5rem auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(33,150,243,0.13);
+  animation: fadeInLogin 0.8s cubic-bezier(.77,0,.18,1);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInLogin {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.paciente-login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.paciente-login-logo {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.2rem auto;
+  display: block;
+  border-radius: 20%;
+  box-shadow: 0 2px 18px #bbdefb;
+  background: #fff;
+  object-fit: cover;
+}
+
+.paciente-login-titulo {
+  font-size: 2.1rem;
+  color: #2196f3;
+  margin-bottom: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-shadow: 0 2px 12px #e3f2fd;
+}
+
+.paciente-login-descripcion {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  background: linear-gradient(90deg, #e3f2fd 0%, #fff 100%);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px #e3f2fd;
+  display: inline-block;
+}
+
+.paciente-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.paciente-login-label {
+  font-size: 1.08rem;
+  color: #1976d2;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+}
+
+.paciente-login-input {
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid #90caf9;
+  font-size: 1.08rem;
+  background: #f5faff;
+  color: #1976d2;
+  box-shadow: 0 2px 8px #e3f2fd;
+  transition: border-color 0.2s;
+}
+
+.paciente-login-input:focus {
+  border-color: #2196f3;
+  outline: none;
+}
+
+.paciente-login-btn {
+  margin-top: 0.5rem;
+  padding: 0.7rem 2.2rem;
+  background: linear-gradient(90deg, #2196f3 60%, #64b5f6 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.15rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 12px #bbdefb;
+  border: none;
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.paciente-login-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #2196f3 100%);
+  transform: scale(1.05);
+}
+
+.paciente-login-links {
+  display: flex;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-top: 1rem;
+}
+
+.paciente-login-registro,
+.paciente-login-olvide {
+  color: #1976d2;
+  font-size: 1rem;
+  text-align: center;
+  text-decoration: underline;
+  transition: color 0.2s;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+
+.paciente-login-registro:hover,
+.paciente-login-olvide:hover {
+  color: #0d47a1;
+}

@@ -1,0 +1,142 @@
+.navbar-nav {
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 4px 32px rgba(176,92,255,0.08);
+  border-bottom: 2px solid #90caf9;
+  position: fixed;      /* Hace el navbar estático */
+  top: 0;               /* Lo fija en la parte superior */
+  left: 0;
+  z-index: 1000;        /* Asegura que esté por encima del contenido */
+}
+
+.navbar-container {
+  max-width: 1400px; /* Más ancho */
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2.5em; /* Más espacio entre logo y botones */
+  padding: 1.2em 3em;
+  flex-wrap: nowrap; /* Evita que se formen dos filas */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  margin-right: 3em;
+}
+
+.navbar-logo-img {
+  width: 120px;   /* Imagen más grande */
+  height: 120px;
+  border-radius: 20%;
+  box-shadow: 0 2px 8px #bbdefb;
+  background: #fff;
+  object-fit: cover;
+}
+
+.navbar-logo-title {
+  font-size: 1.18rem;
+  color: #1976d2;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* Para que el contenido no quede debajo del navbar */
+body {
+  padding-top: 80px; /* Ajusta según la altura real del navbar */
+}
+
+.navbar-btn {
+  padding: 0.8em 1.5em;
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 1.18rem;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #e3f2fd 60%, #bbdefb 100%);
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  text-align: left;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px #bbdefb;
+  border: 1.5px solid #90caf9;
+  margin-bottom: 0;
+}
+
+.navbar-btn:hover,
+.navbar-btn.active {
+  background: linear-gradient(90deg, #1976d2 60%, #64b5f6 100%);
+  color: #fff;
+  border-color: #1976d2;
+}
+
+.navbar-separator {
+  display: inline-block;
+  height: 100px;
+  width: 0;
+  border-left: 2px solid #1976d2;
+  margin: 0 2em;
+  opacity: 0.9;
+  vertical-align: middle;
+  background: none;
+  box-shadow: 0 0 8px #90caf9;
+}
+
+.navbar-btn-paciente {
+  background: linear-gradient(90deg, #e0f7fa 60%, #b2ebf2 100%);
+  color: #00796b;
+  box-shadow: 0 2px 8px #b2dfdb;
+  border: 1.5px solid #4dd0e1;
+}
+
+.navbar-btn-paciente:hover,
+.navbar-btn-paciente.active {
+  background: linear-gradient(90deg, #00796b 60%, #4dd0e1 100%);
+  color: #fff;
+  border-color: #00796b;
+}
+
+.navbar-btn-doctor {
+  background: linear-gradient(90deg, #fce4ec 60%, #f8bbd0 100%);
+  color: #c2185b;
+  box-shadow: 0 2px 8px #f8bbd0;
+  border: 1.5px solid #f06292;
+}
+
+.navbar-btn-doctor:hover,
+.navbar-btn-doctor.active {
+  background: linear-gradient(90deg, #c2185b 60%, #f06292 100%);
+  color: #fff;
+  border-color: #c2185b;
+}
+
+/* Agrupa los botones y los empuja a la derecha */
+.navbar-btn-group {
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  margin-left: auto;
+  align-items: center;
+  flex-wrap: nowrap; /* Mantiene todo en una sola fila */
+}
+
+@media (max-width: 1200px) {
+  .navbar-container {
+    max-width: 98vw;
+    padding: 1em 1vw;
+    gap: 1em;
+  }
+  .navbar-logo-img {
+    width: 50px;
+    height: 50px;
+  }
+  .navbar-logo {
+    margin-right: 1em;
+  }
+  .navbar-btn-group {
+    gap: 1em;
+  }
+}

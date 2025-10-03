@@ -1,1 +1,22 @@
-<p>paciente-login works!</p>
+<div class="paciente-login-container">
+  <div class="paciente-login-header">
+    <img src="assets/logo.png" alt="Logo Gotitas Dentales" class="paciente-login-logo">
+    <h1 class="paciente-login-titulo">Ingreso Paciente</h1>
+    <p class="paciente-login-descripcion">
+      Ingresa con tu correo electrónico y contraseña para acceder al módulo de pacientes de Gotitas Dentales.
+    </p>
+  </div>
+  <form class="paciente-login-form">
+    <label for="correo" class="paciente-login-label">Correo electrónico</label>
+    <input type="email" id="correo" name="correo" class="paciente-login-input" placeholder="ejemplo@email.com" required>
+
+    <label for="password" class="paciente-login-label">Contraseña</label>
+    <input type="password" id="password" name="password" class="paciente-login-input" placeholder="Contraseña" required>
+
+    <button type="submit" class="paciente-login-btn">Ingresar</button>
+    <div class="paciente-login-links">
+      <a href="/registropaciente" class="paciente-login-registro">Registrar usuario</a>
+      <a href="/recuperacionpaciente" class="paciente-login-olvide">Olvidé mi contraseña</a>
+    </div>
+  </form>
+</div>
