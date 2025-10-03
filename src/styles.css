@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+/* Estilos globales para Gotitas Dentales */
+body {
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #ccdce7 0%, #e4d8d8 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #222;
+  min-height: 100vh;
+}
+
+a {
+  color: #1976d2;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #0d47a1;
+}
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #e3f2fd;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #90caf9;
+  border-radius: 4px;
+}

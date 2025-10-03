@@ -1,0 +1,234 @@
+.sidebar-nav {
+  display: none;
+}
+
+.sidebar-nav.open {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 320px;
+  height: 100vh;
+  z-index: 150;
+  background: transparent;
+  animation: sidebarIn 0.4s cubic-bezier(.77,0,.18,1);
+}
+
+@keyframes sidebarIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.sidebar-container {
+  position: relative;
+  width: 320px;
+  height: 600px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 3em 2em 2em 2em;
+  border-radius: 0 24px 24px 0;
+  box-shadow: 0 4px 32px rgba(176,92,255,0.18);
+  gap: 1.5em;
+}
+
+/* Elimina el SVG y el rectángulo animado de la sidebar */
+.sidebar-outline,
+.sidebar-rect {
+  display: none;
+}
+
+.sidebar-btn {
+  padding: 0.8em 1.5em;
+  color: #3d0066;
+  font-weight: 600;
+  font-size: 1.18rem;
+  border-radius: 12px;
+  margin-bottom: 0.5em;
+  cursor: pointer;
+  background: #e6d6ff;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px #e1caff;
+}
+
+.sidebar-btn:hover,
+.sidebar-btn.active {
+  background: #b05cff;
+  color: #fff;
+}
+
+/* Hamburguesa */
+.hamburger-btn {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  width: 36px;
+  height: 36px;
+  background: #e3f2fd;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #bbdefb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 22px;
+  height: 3px;
+  margin: 3px 0;
+  background: #1976d2;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+#sidebar-toggle {
+  display: none;
+}
+
+.toggle {
+  position: fixed;
+  top: 24px;
+  left: 24px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  z-index: 201;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px #e1caff;
+  transition-duration: .5s;
+}
+
+.bars {
+  width: 100%;
+  height: 3px;
+  background-color: #b05cff;
+  border-radius: 4px;
+  transition: .5s;
+}
+
+#bar1, #bar3 {
+  width: 70%;
+}
+
+#sidebar-toggle:checked + .toggle .bars {
+  position: absolute;
+  transition-duration: .5s;
+}
+
+#sidebar-toggle:checked + .toggle #bar2 {
+  transform: scaleX(0);
+  transition-duration: .5s;
+}
+
+#sidebar-toggle:checked + .toggle #bar1 {
+  width: 100%;
+  transform: rotate(45deg);
+  transition-duration: .5s;
+}
+
+#sidebar-toggle:checked + .toggle #bar3 {
+  width: 100%;
+  transform: rotate(-45deg);
+  transition-duration: .5s;
+}
+
+#sidebar-toggle:checked + .toggle {
+  transition-duration: .5s;
+  transform: rotate(180deg);
+}
+
+/* Hover effects for animated rect */
+.sidebar-btn:nth-child(1):hover ~ .sidebar-outline .sidebar-rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 2 8 73.3 8 10.7;
+}
+
+.sidebar-btn:nth-child(2):hover ~ .sidebar-outline .sidebar-rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 12.6 9.5 49.3 9.5 31.6;
+}
+
+.sidebar-btn:nth-child(3):hover ~ .sidebar-outline .sidebar-rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 24.5 8.5 27.5 8.5 55.5;
+}
+
+.sidebar-btn:nth-child(4):hover ~ .sidebar-outline .sidebar-rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 34.7 6.9 10.2 6.9 76;
+}
+
+.sidebar-btn:hover ~ .sidebar-outline .sidebar-rect {
+  stroke-dashoffset: 0;
+  stroke-dasharray: 0 0 10 40 10 40;
+  transition: 0.5s !important;
+}
+
+.sidebar-separator {
+  width: 100%;
+  border: none;
+  border-top: 2px solid #b05cff;
+  margin: 1.5em 0;
+  opacity: 0.5;
+}
+
+.sidebar-btn-paciente {
+  background: #d1f7e7;
+  color: #00796b;
+  box-shadow: 0 2px 8px #b2dfdb;
+}
+
+.sidebar-btn-paciente:hover,
+.sidebar-btn-paciente.active {
+  background: #00796b;
+  color: #fff;
+}
+
+.sidebar-btn-doctor {
+  background: #ffe0e6;
+  color: #c2185b;
+  box-shadow: 0 2px 8px #f8bbd0;
+}
+
+.sidebar-btn-doctor:hover,
+.sidebar-btn-doctor.active {
+  background: #c2185b;
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .sidebar-nav, .sidebar-container {
+    width: 100vw;
+    min-width: 0;
+    border-radius: 0;
+    padding: 2em 1em;
+  }
+  .sidebar-outline {
+    width: 100vw;
+  }
+}

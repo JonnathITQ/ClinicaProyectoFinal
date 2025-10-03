@@ -1,0 +1,18 @@
+<input type="checkbox" id="sidebar-toggle" [checked]="isOpen" (change)="toggleSidebar()" hidden>
+<label for="sidebar-toggle" class="toggle">
+  <div class="bars" id="bar1"></div>
+  <div class="bars" id="bar2"></div>
+  <div class="bars" id="bar3"></div>
+</label>
+<nav class="sidebar-nav" [class.open]="isOpen">
+  <div class="sidebar-container">
+    <a routerLink="/" routerLinkActive="active" class="sidebar-btn">Inicio</a>
+    <a routerLink="/servicios" routerLinkActive="active" class="sidebar-btn">Servicios</a>
+    <a routerLink="/contacto" routerLinkActive="active" class="sidebar-btn">Contacto</a>
+    <a routerLink="/about" routerLinkActive="active" class="sidebar-btn">Acerca de</a>
+    <hr class="sidebar-separator">
+    <a routerLink="/pacientelogin" routerLinkActive="active" class="sidebar-btn sidebar-btn-paciente">Pacientes</a>
+    <a routerLink="/doctorlogin" routerLinkActive="active" class="sidebar-btn sidebar-btn-doctor">Doctores</a>
+    <!-- Puedes eliminar el SVG si no lo usas -->
+  </div>
+</nav>

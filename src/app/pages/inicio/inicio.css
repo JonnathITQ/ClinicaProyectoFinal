@@ -1,0 +1,310 @@
+.inicio-container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2.5rem 2rem;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(33,150,243,0.13);
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  margin: 1.2rem auto 1.2rem auto;
+  display: block;
+  border-radius: 20%;
+  box-shadow: 0 2px 18px #bbdefb;
+  background: #fff;
+  object-fit: cover;
+}
+
+.titulo {
+  font-size: 3.2rem;
+  color: #2196f3;
+  margin-bottom: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-shadow: 0 2px 12px #e3f2fd;
+}
+
+.descripcion {
+  font-size: 1.3rem;
+  color: #444;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  background: linear-gradient(90deg, #e3f2fd 0%, #fff 100%);
+  border-radius: 10px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 8px #e3f2fd;
+  display: inline-block;
+}
+
+.emoji {
+  font-size: 1.5rem;
+  vertical-align: middle;
+}
+
+.cta-btn {
+  display: inline-block;
+  margin-top: 1.2rem;
+  padding: 0.7rem 2.2rem;
+  background: linear-gradient(90deg, #2196f3 60%, #64b5f6 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.15rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 12px #bbdefb;
+  transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.cta-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #2196f3 100%);
+  transform: scale(1.05);
+}
+
+.cta-btn.grande {
+  font-size: 1.25rem;
+  padding: 1rem 2.8rem;
+  margin-top: 1.5rem;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 2.5rem;
+  color: #1976d2;
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 8px #e3f2fd;
+}
+
+.servicios-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  margin: 2.2rem 0 2.5rem 0;
+}
+
+.servicio-card {
+  background: linear-gradient(120deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(33,150,243,0.10);
+  padding: 1.5rem 1.2rem;
+  width: 210px;
+  text-align: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 2px solid #90caf9;
+  position: relative;
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 8px 32px rgba(33,150,243,0.18);
+  border-color: #2196f3;
+}
+
+.servicio-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.7rem;
+  display: block;
+}
+
+.servicio-card h3 {
+  color: #1976d2;
+  font-size: 1.18rem;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.servicio-card p {
+  color: #333;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.limpieza { background: linear-gradient(120deg, #e3f2fd 0%, #b2ebf2 100%);}
+.extraccion { background: linear-gradient(120deg, #e3f2fd 0%, #ffcdd2 100%);}
+.consulta { background: linear-gradient(120deg, #e3f2fd 0%, #c8e6c9 100%);}
+.caries { background: linear-gradient(120deg, #e3f2fd 0%, #ffe0b2 100%);}
+.blanqueamiento { background: linear-gradient(120deg, #e3f2fd 0%, #fffde7 100%);}
+.ortodoncia { background: linear-gradient(120deg, #e3f2fd 0%, #d1c4e9 100%);}
+
+.doctores-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.doctor-card {
+  background: linear-gradient(120deg, #f5faff 0%, #e3f2fd 100%);
+  border-radius: 14px;
+  padding: 1.2rem 1rem;
+  width: 220px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(33,150,243,0.10);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1.5px solid #e3f2fd;
+  position: relative;
+}
+
+.doctor-card.hombre {
+  border-top: 6px solid #2196f3;
+}
+.doctor-card.mujer {
+  border-top: 6px solid #f06292;
+}
+
+.doctor-card:hover {
+  transform: translateY(-7px) scale(1.04);
+  box-shadow: 0 6px 24px rgba(33,150,243,0.18);
+  border-color: #90caf9;
+}
+
+.doctor-card img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #2196f3;
+  box-shadow: 0 2px 8px #bbdefb;
+  background: #fff;
+}
+
+.doctor-card h3 {
+  margin: 0.5rem 0 0.2rem 0;
+  color: #1976d2;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.doctor-card p {
+  margin: 0;
+  color: #555;
+  font-size: 1.05rem;
+  font-style: italic;
+}
+
+.cita-section {
+  text-align: center;
+  margin: 3rem 0 1rem 0;
+  padding: 2rem 1rem;
+  background: linear-gradient(90deg, #e3f2fd 0%, #fff 100%);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #bbdefb;
+}
+
+.cita-section h2 {
+  color: #2196f3;
+  font-size: 2rem;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+}
+
+.cita-section p {
+  color: #444;
+  font-size: 1.15rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Carrusel 3D para doctores */
+.carousel-wrapper {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 3rem;
+}
+
+.carousel-inner {
+  --w: 220px;
+  --h: 280px;
+  --translateZ: calc((var(--w) + var(--h)) / 2 + 40px);
+  --rotateX: -10deg;
+  --perspective: 1200px;
+  position: absolute;
+  width: var(--w);
+  height: var(--h);
+  top: 10%;
+  left: calc(50% - (var(--w) / 2));
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: perspective(var(--perspective));
+  animation: carousel-rotating 18s linear infinite;
+}
+@keyframes carousel-rotating {
+  from {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
+  }
+  to {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn);
+  }
+}
+
+.carousel-card {
+  position: absolute;
+  border: 2px solid rgba(var(--color-card), 0.7);
+  border-radius: 18px;
+  overflow: hidden;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(var(--color-card),0.18) 0%, #fff 100%);
+  box-shadow: 0 2px 18px rgba(var(--color-card),0.13);
+  transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(var(--translateZ));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 1.2rem 1rem 1rem 1rem;
+  width: var(--w);
+  height: var(--h);
+  text-align: center;
+}
+
+.carousel-card img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid #2196f3;
+  box-shadow: 0 2px 8px #bbdefb;
+  background: #fff;
+}
+
+.carousel-card.hombre {
+  border-top: 6px solid #2196f3;
+}
+.carousel-card.mujer {
+  border-top: 6px solid #f06292;
+}
+
+.carousel-card h3 {
+  margin: 0.5rem 0 0.2rem 0;
+  color: #1976d2;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.carousel-card p {
+  margin: 0;
+  color: #555;
+  font-size: 1.05rem;
+  font-style: italic;
+}
