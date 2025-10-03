@@ -17,7 +17,7 @@
   align-items: center;
   justify-content: flex-start;
   gap: 2.5em; /* Más espacio entre logo y botones */
-  padding: 1.2em 3em;
+  padding: 0em 3em;
   flex-wrap: nowrap; /* Evita que se formen dos filas */
 }
 
@@ -75,7 +75,7 @@ body {
 
 .navbar-separator {
   display: inline-block;
-  height: 100px;
+  height: px;
   width: 0;
   border-left: 2px solid #1976d2;
   margin: 0 2em;

@@ -1,6 +1,7 @@
 body {
   background: linear-gradient(135deg, #b3e5fc 0%, #e3f2fd 100%);
   min-height: 100vh;
+  padding-top: 50px;
 }
 
 .doctor-login-container {
