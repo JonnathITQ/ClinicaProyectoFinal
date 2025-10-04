@@ -1,0 +1,137 @@
+body {
+  background: linear-gradient(135deg, #b3e5fc 0%, #e3f2fd 100%);
+  min-height: 100vh;
+}
+
+.doctor-login-container {
+  max-width: 420px;
+  margin: 5rem auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 6px 32px rgba(33,150,243,0.13);
+  animation: fadeInLogin 0.8s cubic-bezier(.77,0,.18,1);
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes fadeInLogin {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.doctor-login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.doctor-login-logo {
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1.2rem auto;
+  display: block;
+  border-radius: 20%;
+  box-shadow: 0 2px 18px #bbdefb;
+  background: #fff;
+  object-fit: cover;
+}
+
+.doctor-login-titulo {
+  font-size: 2.1rem;
+  color: #2196f3;
+  margin-bottom: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-shadow: 0 2px 12px #e3f2fd;
+}
+
+.doctor-login-descripcion {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  background: linear-gradient(90deg, #e3f2fd 0%, #fff 100%);
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px #e3f2fd;
+  display: inline-block;
+}
+
+.doctor-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.doctor-login-label {
+  font-size: 1.08rem;
+  color: #1976d2;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  letter-spacing: 1px;
+}
+
+.doctor-login-input {
+  padding: 0.7rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid #90caf9;
+  font-size: 1.08rem;
+  background: #f5faff;
+  color: #1976d2;
+  box-shadow: 0 2px 8px #e3f2fd;
+  transition: border-color 0.2s;
+}
+
+.doctor-login-input:focus {
+  border-color: #2196f3;
+  outline: none;
+}
+
+.doctor-login-btn {
+  margin-top: 0.5rem;
+  padding: 0.7rem 2.2rem;
+  background: linear-gradient(90deg, #2196f3 60%, #64b5f6 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.15rem;
+  border-radius: 30px;
+  box-shadow: 0 2px 12px #bbdefb;
+  border: none;
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.doctor-login-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #2196f3 100%);
+  transform: scale(1.05);
+}
+
+.navbar-volver-btn {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: linear-gradient(90deg, #2196f3 60%, #64b5f6 100%);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.08rem;
+  border-radius: 18px;
+  box-shadow: 0 2px 10px #bbdefb;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.navbar-volver-btn:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #2196f3 100%);
+  transform: scale(1.05);
+}

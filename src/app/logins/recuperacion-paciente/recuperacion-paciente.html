@@ -1,1 +1,28 @@
-<p>recuperacion-paciente works!</p>
+<button class="navbar-volver-btn" onclick="window.location.href='pacientelogin'">
+  ← Volver
+</button>
+
+<div class="doctor-login-container">
+  <div class="doctor-login-header">
+    <img src="assets/logoRegistroPaciente.png" alt="Recuperación Paciente Logo" class="doctor-login-logo">
+    <div class="doctor-login-titulo">Recuperación de Credenciales</div>
+    <div class="doctor-login-descripcion">
+      Complete los siguientes datos para recuperar sus credenciales de acceso.
+    </div>
+  </div>
+  <form class="doctor-login-form">
+    <label class="doctor-login-label" for="nombre">Nombre</label>
+    <input class="doctor-login-input" type="text" id="nombre" name="nombre" required>
+
+    <label class="doctor-login-label" for="apellido">Apellido</label>
+    <input class="doctor-login-input" type="text" id="apellido" name="apellido" required>
+
+    <label class="doctor-login-label" for="correo">Correo</label>
+    <input class="doctor-login-input" type="email" id="correo" name="correo" required>
+
+    <label class="doctor-login-label" for="cedula">Cédula</label>
+    <input class="doctor-login-input" type="text" id="cedula" name="cedula" required>
+
+    <button type="submit" class="doctor-login-btn">Recuperar</button>
+  </form>
+</div>

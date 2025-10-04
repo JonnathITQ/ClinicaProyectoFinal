@@ -397,3 +397,202 @@ h2 {
     left: 100%;
   }
 }
+
+/* Responsive mejorado desde 780px hacia abajo */
+@media (max-width: 780px) {
+  .inicio-container {
+    max-width: 98vw;
+    margin: 1.2rem 1vw;
+    padding: 1.5rem 0.7rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px rgba(33,150,243,0.13);
+  }
+
+  .header {
+    margin-bottom: 1.5rem;
+    padding: 0 0.5em;
+  }
+
+  .logo {
+    width: 120px;
+    height: 120px;
+    margin: 1rem auto 1rem auto;
+    border-radius: 18%;
+  }
+
+  .titulo {
+    font-size: 2.1rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+  }
+
+  .descripcion {
+    font-size: 1.05rem;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px #e3f2fd;
+  }
+
+  .cta-btn,
+  .cta-btn.grande {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 22px;
+  }
+
+  h2,
+  .cita-section h2 {
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+  }
+
+  .servicios-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin: 1.2rem 0 1.5rem 0;
+    align-items: center;
+  }
+
+  .servicio-card {
+    width: 95vw;
+    max-width: 340px;
+    padding: 1.1rem 0.7rem;
+    border-radius: 12px;
+    font-size: 1rem;
+  }
+
+  .servicio-icon {
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .servicio-card h3 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .servicio-card p {
+    font-size: 0.98rem;
+  }
+
+  .doctores-grid {
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+    align-items: center;
+  }
+
+  .doctor-card {
+    width: 95vw;
+    max-width: 340px;
+    padding: 1rem 0.7rem;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  .doctor-card img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0.7rem;
+    border-radius: 50%;
+  }
+
+  .doctor-card h3 {
+    font-size: 1rem;
+    margin: 0.3rem 0 0.1rem 0;
+  }
+
+  .doctor-card p {
+    font-size: 0.95rem;
+  }
+
+  .cita-section {
+    margin: 2rem 0 1rem 0;
+    padding: 1.2rem 0.5rem;
+    border-radius: 10px;
+    font-size: 1rem;
+  }
+
+  .cita-section p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Carrusel 3D para doctores */
+  .carousel-wrapper {
+    height: 220px;
+    margin-bottom: 2rem;
+  }
+  .carousel-inner {
+    --w: 140px;
+    --h: 180px;
+    top: 0;
+    left: calc(50% - (var(--w) / 2));
+  }
+  .carousel-card {
+    width: var(--w);
+    height: var(--h);
+    padding: 0.7rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 10px;
+  }
+  .carousel-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.5rem;
+  }
+  .carousel-card h3 {
+    font-size: 0.95rem;
+  }
+  .carousel-card p {
+    font-size: 0.9rem;
+  }
+
+  /* Slider estilo Uiverse.io para doctores */
+  .card {
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.98rem;
+  }
+  .card h3 {
+    font-size: 14px;
+  }
+  .card p {
+    font-size: 13px;
+  }
+  .slider .list .item img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 7px;
+  }
+}
+
+/* Responsive para celulares más pequeños */
+@media (max-width: 480px) {
+  .inicio-container {
+    padding: 1rem 0.2rem;
+    border-radius: 8px;
+  }
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+  .titulo {
+    font-size: 1.3rem;
+  }
+  .servicio-card,
+  .doctor-card {
+    max-width: 98vw;
+    padding: 0.7rem 0.2rem;
+  }
+  .carousel-inner {
+    --w: 90px;
+    --h: 110px;
+  }
+  .carousel-card {
+    padding: 0.3rem 0.2rem 0.2rem 0.2rem;
+  }
+}

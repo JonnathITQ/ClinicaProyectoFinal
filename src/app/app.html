@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
-<app-sidebar></app-sidebar>
+<app-navbar *ngIf="!ocultarNavSidebar"></app-navbar>
+<app-sidebar *ngIf="!ocultarNavSidebar"></app-sidebar>
 
 <main>
   <router-outlet></router-outlet>

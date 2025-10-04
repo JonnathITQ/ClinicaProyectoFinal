@@ -227,14 +227,59 @@
   border-color: #c2185b;
 }
 
-@media (max-width: 600px) {
-  .sidebar-nav, .sidebar-container {
+@media (max-width: 850px) {
+  .sidebar-nav.open {
     width: 100vw;
+    left: 0;
+    top: 0;
+    height: 100vh;
     min-width: 0;
     border-radius: 0;
-    padding: 2em 1em;
+    background: rgba(176,92,255,0.08); /* Fondo semitransparente para overlay */
+    box-shadow: none;
+    z-index: 2001;
   }
-  .sidebar-outline {
-    width: 100vw;
+
+  .sidebar-container {
+    width: 30vw;
+    max-width: 400px;
+    min-width: 0;
+    height: 100vh;
+    padding: 5em 1.2em 2em 1.2em;
+    border-radius: 0 18px 18px 0;
+    box-shadow: 0 4px 32px rgba(176,92,255,0.18);
+    gap: 1em;
+    overflow-y: auto;
+    background: #fff;
+    position: relative;
+  }
+
+  .sidebar-btn,
+  .sidebar-btn-paciente,
+  .sidebar-btn-doctor {
+    width: 60%;
+    min-width: unset;
+    max-width: unset;
+    font-size: 1.05rem;
+    padding: 0.7em 1em;
+    margin-bottom: 0.7em;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 1px 4px #bbdefb;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-separator {
+    margin: 1em 0;
+  }
+
+  .hamburger-btn,
+  .toggle {
+    top: 18px;
+    left: 18px;
+    width: 34px;
+    height: 34px;
+    box-shadow: 0 2px 8px #bbdefb;
   }
 }
+

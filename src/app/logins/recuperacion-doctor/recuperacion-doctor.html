@@ -1,1 +1,22 @@
-<p>recuperacion-doctor works!</p>
+<button class="navbar-volver-btn" onclick="window.location.href='doctorlogin'">
+  ← Volver
+</button>
+
+<div class="doctor-login-container">
+  <div class="doctor-login-header">
+    <img src="assets/logoRegistroPaciente.png" alt="Recuperación Doctor Logo" class="doctor-login-logo">
+    <div class="doctor-login-titulo">Recuperación de Credenciales</div>
+    <div class="doctor-login-descripcion">
+      Ingrese su correo institucional y cédula para recuperar sus credenciales de acceso.
+    </div>
+  </div>
+  <form class="doctor-login-form">
+    <label class="doctor-login-label" for="correo">Correo Institucional</label>
+    <input class="doctor-login-input" type="email" id="correo" name="correo" required>
+
+    <label class="doctor-login-label" for="cedula">Cédula</label>
+    <input class="doctor-login-input" type="text" id="cedula" name="cedula" required>
+
+    <button type="submit" class="doctor-login-btn">Recuperar</button>
+  </form>
+</div>
