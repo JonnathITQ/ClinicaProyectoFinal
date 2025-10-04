@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
 const HistorialMedicoSchema = new mongoose.Schema({
-  usuarioId: { type: mongoose.Schema.Types.ObjectId, ref: 'Usuario' },
-  fecha: Date,
-  descripcion: String,
+  id_historial: Number,
+  id_paciente: Number,
+  id_doctor: Number,
+  id_cita: Number,
+  diagnóstico: String,
+  notas: String,
+  prescripciones: [String], 
+  fecha_creación: Date      
 });
 
 module.exports = mongoose.model('HistorialMedico', HistorialMedicoSchema);

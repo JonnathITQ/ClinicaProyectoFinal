@@ -18,12 +18,13 @@ export class App {
   constructor(private router: Router) {}
 
   get ocultarNavSidebar(): boolean {
-    // Oculta navbar y sidebar si la ruta empieza con /doctorlogin, /pacientelogin, /recuperaciondoctor, /recuperacionpaciente, /registropaciente
-    // O si la ruta contiene 'login', 'recuperacion' o 'register'
+    // Aqui se pone las rutas en las cuales se va a ocultar la navbar y sidebar
     return this.router.url.startsWith('/doctorlogin')
       || this.router.url.startsWith('/pacientelogin')
       || this.router.url.startsWith('/recuperaciondoctor')
       || this.router.url.startsWith('/recuperacionpaciente')
-      || this.router.url.startsWith('/registropaciente');
+      || this.router.url.startsWith('/registropaciente')
+      || this.router.url.startsWith('/modulopaciente')
+      || this.router.url.startsWith('/modulodoctor');
   }
 }

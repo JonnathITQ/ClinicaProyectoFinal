@@ -160,3 +160,28 @@ body {
   background: linear-gradient(90deg, #1976d2 60%, #2196f3 100%);
   transform: scale(1.05);
 }
+
+.notificacion {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 320px;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  z-index: 1000;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+.notificacion-error {
+  background: #ffcdd2;
+  color: #b71c1c;
+  border: 1px solid #b71c1c;
+}
+.notificacion-exito {
+  background: #c8e6c9;
+  color: #1b5e20;
+  border: 1px solid #1b5e20;
+}

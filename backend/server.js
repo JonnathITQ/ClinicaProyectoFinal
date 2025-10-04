@@ -9,7 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 // Rutas
-app.use('/api/usuarios', require('./routes/usuarios'));
+const usuariosRouter = require('./routes/usuarios');
+app.use('/api/usuarios', usuariosRouter);
 app.use('/api/servicios', require('./routes/servicios'));
 app.use('/api/historial_medico', require('./routes/historial_medico'));
 app.use('/api/citas', require('./routes/citas'));

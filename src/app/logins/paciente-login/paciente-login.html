@@ -2,6 +2,14 @@
   ← Volver
 </button>
 
+<!-- Notificación -->
+<div *ngIf="mensaje" [ngClass]="{
+  'notificacion-error': tipoMensaje === 'error',
+  'notificacion-exito': tipoMensaje === 'exito'
+}" class="notificacion">
+  {{ mensaje }}
+</div>
+
 <div class="paciente-login-container">
   <div class="paciente-login-header">
     <img src="assets/logo.png" alt="Logo Gotitas Dentales" class="paciente-login-logo">
@@ -10,12 +18,12 @@
       Ingresa con tu correo electrónico y contraseña para acceder al módulo de pacientes de Gotitas Dentales.
     </p>
   </div>
-  <form class="paciente-login-form">
+  <form class="paciente-login-form" (submit)="onSubmit($event)">
     <label for="correo" class="paciente-login-label">Correo electrónico</label>
-    <input type="email" id="correo" name="correo" class="paciente-login-input" placeholder="ejemplo@email.com" required>
+    <input type="text" id="correo" name="correo" class="paciente-login-input" placeholder="ejemplo@email.com">
 
     <label for="password" class="paciente-login-label">Contraseña</label>
-    <input type="password" id="password" name="password" class="paciente-login-input" placeholder="Contraseña" required>
+    <input type="password" id="password" name="password" class="paciente-login-input" placeholder="Contraseña">
 
     <button type="submit" class="paciente-login-btn">Ingresar</button>
     <div class="paciente-login-links">

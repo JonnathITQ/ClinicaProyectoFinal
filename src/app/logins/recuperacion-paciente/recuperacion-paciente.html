@@ -2,6 +2,14 @@
   ← Volver
 </button>
 
+<!-- Notificación -->
+<div *ngIf="mensaje" [ngClass]="{
+  'notificacion-error': tipoMensaje === 'error',
+  'notificacion-exito': tipoMensaje === 'exito'
+}" class="notificacion">
+  {{ mensaje }}
+</div>
+
 <div class="doctor-login-container">
   <div class="doctor-login-header">
     <img src="assets/logoRegistroPaciente.png" alt="Recuperación Paciente Logo" class="doctor-login-logo">
@@ -10,18 +18,18 @@
       Complete los siguientes datos para recuperar sus credenciales de acceso.
     </div>
   </div>
-  <form class="doctor-login-form">
+  <form class="doctor-login-form" (submit)="onSubmit($event)">
     <label class="doctor-login-label" for="nombre">Nombre</label>
-    <input class="doctor-login-input" type="text" id="nombre" name="nombre" required>
+    <input class="doctor-login-input" type="text" id="nombre" name="nombre">
 
     <label class="doctor-login-label" for="apellido">Apellido</label>
-    <input class="doctor-login-input" type="text" id="apellido" name="apellido" required>
+    <input class="doctor-login-input" type="text" id="apellido" name="apellido">
 
     <label class="doctor-login-label" for="correo">Correo</label>
-    <input class="doctor-login-input" type="email" id="correo" name="correo" required>
+    <input class="doctor-login-input" type="email" id="correo" name="correo">
 
     <label class="doctor-login-label" for="cedula">Cédula</label>
-    <input class="doctor-login-input" type="text" id="cedula" name="cedula" required>
+    <input class="doctor-login-input" type="text" id="cedula" name="cedula">
 
     <button type="submit" class="doctor-login-btn">Recuperar</button>
   </form>

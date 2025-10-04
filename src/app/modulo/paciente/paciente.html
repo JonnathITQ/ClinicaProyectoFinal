@@ -1,1 +1,28 @@
-<p>paciente works!</p>
+<button class="paciente-cerrar-sesion-btn" (click)="cerrarSesion()">
+  Cerrar Sesión
+</button>
+<div class="paciente-main-container">
+  <h1 class="paciente-bienvenida">
+    Te damos la bienvenida, {{ usuario.nombre }}
+  </h1>
+  <div class="paciente-paso">
+    <h2>Paso 1: Selecciona el servicio que necesitas</h2>
+    <div class="paciente-servicios-grid">
+      <div 
+        *ngFor="let servicio of servicios" 
+        class="paciente-servicio-card"
+        [ngClass]="{ 'seleccionado': servicioSeleccionado === servicio.id_servicio }"
+        (click)="seleccionarServicio(servicio.id_servicio)">
+        <h3>{{ servicio.nombre }}</h3>
+        <p>{{ servicio.descripcion }}</p>
+        <span class="paciente-servicio-precio">${{ servicio.precio }}</span>
+      </div>
+    </div>
+    <div *ngIf="servicioSeleccionado" class="paciente-paso-siguiente">
+      <button class="paciente-btn-siguiente" (click)="irASiguientePaso()">Siguiente</button>
+    </div>
+    <div *ngIf="!servicioSeleccionado" class="paciente-aviso">
+      <span>Debes seleccionar un servicio para continuar.</span>
+    </div>
+  </div>
+</div>
