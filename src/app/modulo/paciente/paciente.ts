@@ -1,29 +1,28 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // <-- Importa CommonModule
-import { RouterModule, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-paciente',
-  imports: [RouterModule, CommonModule], // <-- Agrega CommonModule aquí
+  imports: [CommonModule],
   templateUrl: './paciente.html',
   styleUrl: './paciente.css'
 })
 export class Paciente {
-  usuario = { nombre: 'Carlos', apellido: 'Pérez' }; // Reemplaza con datos reales del usuario
+  usuario = { nombre: 'Carlos', _id: 'ID_DEL_PACIENTE' }; // Usa el ID real del paciente
   servicios: any[] = [];
   servicioSeleccionado: number | null = null;
+  citasDisponibles: any[] = [];
+  fase: number = 1;
 
-  constructor(private router: Router) {
+  constructor() {
     this.cargarServicios();
   }
 
   async cargarServicios() {
     try {
       const res = await fetch('http://localhost:3000/api/servicios');
-      const data = await res.json();
-      this.servicios = data.filter((s: any) => s.activo);
+      this.servicios = await res.json();
     } catch (error) {
-      // Puedes mostrar una notificación de error si lo deseas
       this.servicios = [];
     }
   }
@@ -32,13 +31,37 @@ export class Paciente {
     this.servicioSeleccionado = id;
   }
 
-  cerrarSesion() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/']);
+  async irASiguientePaso() {
+    if (this.servicioSeleccionado) {
+      await this.cargarCitasDisponibles();
+      this.fase = 2;
+    }
   }
 
-  irASiguientePaso() {
-    // Aquí va la lógica para el siguiente paso
-    // Por ejemplo: window.location.href = '/siguiente-paso';
+  async cargarCitasDisponibles() {
+    try {
+      const res = await fetch('http://localhost:3000/api/citas/disponibles');
+      this.citasDisponibles = await res.json();
+    } catch (error) {
+      this.citasDisponibles = [];
+    }
+  }
+
+  async reservarCita(citaId: string) {
+    const pacienteId = this.usuario._id;
+    const res = await fetch('http://localhost:3000/api/citas/reservar', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ citaId, pacienteId })
+    });
+    const data = await res.json();
+    if (data.success) {
+      this.citasDisponibles = this.citasDisponibles.filter(cita => cita._id !== citaId);
+    }
+  }
+
+  cerrarSesion() {
+    localStorage.removeItem('token');
+    window.location.href = '/';
   }
 }

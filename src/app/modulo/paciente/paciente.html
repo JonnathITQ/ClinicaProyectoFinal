@@ -5,7 +5,9 @@
   <h1 class="paciente-bienvenida">
     Te damos la bienvenida, {{ usuario.nombre }}
   </h1>
-  <div class="paciente-paso">
+
+  <!-- Fase 1: Selección de servicio -->
+  <div *ngIf="fase === 1" class="paciente-paso">
     <h2>Paso 1: Selecciona el servicio que necesitas</h2>
     <div class="paciente-servicios-grid">
       <div 
@@ -23,6 +25,24 @@
     </div>
     <div *ngIf="!servicioSeleccionado" class="paciente-aviso">
       <span>Debes seleccionar un servicio para continuar.</span>
+    </div>
+  </div>
+
+  <!-- Fase 2: Selección de cita -->
+  <div *ngIf="fase === 2" class="paciente-citas-disponibles">
+    <h2>Paso 2: Selecciona una cita disponible</h2>
+    <div class="paciente-citas-grid">
+      <div *ngFor="let cita of citasDisponibles" class="paciente-cita-card">
+      <span>
+        Doctor: {{ cita.doctor?.nombre }} {{ cita.doctor?.apellido }}<br>
+        Fecha: {{ cita.fecha_cita }}<br>
+        Hora: {{ cita.hora_inicio }} a {{ cita.hora_fin }}
+      </span>
+      <button class="paciente-cita-btn" (click)="reservarCita(cita._id)">Reservar</button>
+    </div>
+    </div>
+    <div *ngIf="citasDisponibles.length === 0" class="paciente-aviso">
+      <span>No hay citas disponibles en los próximos 5 días.</span>
     </div>
   </div>
 </div>

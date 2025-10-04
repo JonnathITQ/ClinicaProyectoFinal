@@ -19,7 +19,8 @@
   animation: fadeInTitle 1.2s;
 }
 
-.paciente-paso h2 {
+.paciente-paso h2,
+.paciente-citas-disponibles h2 {
   font-size: 1.35rem;
   margin-bottom: 1.2rem;
   color: #333;
@@ -126,6 +127,58 @@
   animation: fadeInAviso 1.2s;
 }
 
+/* Citas disponibles */
+.paciente-citas-disponibles {
+  margin-top: 2.5rem;
+  animation: fadeInCitas 1.2s;
+}
+
+.paciente-citas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.paciente-cita-card {
+  background: linear-gradient(135deg, #fffde7 60%, #fff 100%);
+  border-radius: 14px;
+  box-shadow: 0 2px 16px rgba(255,193,7,0.09);
+  padding: 1.2rem 1rem;
+  text-align: center;
+  border: 2px solid #ffe082;
+  position: relative;
+  animation: fadeInCard 1.1s;
+}
+
+.paciente-cita-card span {
+  display: block;
+  font-size: 1.08rem;
+  color: #f57c00;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.paciente-cita-btn {
+  background: linear-gradient(90deg, #fbc02d 70%, #ffd600 100%);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.7rem 1.8rem;
+  font-size: 1.05rem;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(255,193,7,0.12);
+  transition: background 0.2s, transform 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.paciente-cita-btn:hover {
+  background: linear-gradient(90deg, #f57c00 70%, #fbc02d 100%);
+  transform: scale(1.05);
+}
+
+/* Cerrar sesión */
 .paciente-cerrar-sesion-btn {
   position: absolute;
   top: 32px;
@@ -142,7 +195,6 @@
   transition: background 0.2s, transform 0.2s;
   z-index: 10;
 }
-
 .paciente-cerrar-sesion-btn:hover {
   background: #b71c1c;
   transform: scale(1.07);
@@ -171,4 +223,8 @@
 @keyframes fadeInAviso {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+@keyframes fadeInCitas {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
 }
