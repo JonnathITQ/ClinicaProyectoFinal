@@ -5,13 +5,7 @@ const DoctorSchema = new mongoose.Schema({
   apellido: String,
   correo: String,
   contraseña: String,
-  rol: { type: String, default: 'doctor' },
-  cedula: String,
-  direccion: String,
-  especialidad: String,
-  edad: Number,
-  fecha_creacion: Date,
-  fecha_actualizacion: Date
+  rol: { type: String, default: 'doctor' }
 });
 
 module.exports = mongoose.model('Doctor', DoctorSchema);

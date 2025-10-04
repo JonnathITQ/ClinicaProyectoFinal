@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const ServicioSchema = new mongoose.Schema({
   id_servicio: Number,
   nombre: String,
-  descripción: String,        // <-- con tilde, igual que en la base de datos
+  descripción: String,  
   duracion_minutos: Number,
   precio: Number,
   activo: Boolean

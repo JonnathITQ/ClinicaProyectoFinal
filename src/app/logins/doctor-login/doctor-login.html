@@ -10,14 +10,20 @@
       Ingresa con tu correo institucional y contraseña para acceder al módulo de doctores de Gotitas Dentales.
     </p>
   </div>
-  <form class="doctor-login-form">
+  <!-- Notificación -->
+  <div *ngIf="mensaje" [ngClass]="{
+    'notificacion-exito': tipoMensaje === 'exito',
+    'notificacion-error': tipoMensaje === 'error'
+  }" class="notificacion">
+    {{ mensaje }}
+  </div>
+  <form class="doctor-login-form" (submit)="onSubmit($event)">
     <label for="correo" class="doctor-login-label">Correo Institucional</label>
-    <input type="email" id="correo" name="correo" class="doctor-login-input" placeholder="ejemplo@gotitas.edu.ec" required>
+    <input type="text" id="correo" name="correo" class="doctor-login-input" placeholder="ejemplo@gotitas.edu.ec">
 
     <label for="password" class="doctor-login-label">Contraseña</label>
-    <input type="password" id="password" name="password" class="doctor-login-input" placeholder="Contraseña" required>
+    <input type="password" id="password" name="password" class="doctor-login-input" placeholder="Contraseña">
 
     <button type="submit" class="doctor-login-btn">Ingresar</button>
-    <a href="/recuperaciondoctor" class="doctor-login-olvide">Olvidé mi contraseña</a>
   </form>
 </div>
