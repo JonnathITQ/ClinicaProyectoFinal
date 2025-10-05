@@ -120,7 +120,120 @@
   transform: scale(1.05);
 }
 
+.doctores-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.doctor-card {
+  border: 2.5px solid #90caf9;
+  border-radius: 22px;
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  background: linear-gradient(120deg, #e3f2fd 60%, #b3e5fc 100%);
+  box-shadow: 0 8px 32px #e3f2fd;
+  transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  cursor: pointer;
+  position: relative;
+  animation: tarjetaFade 0.8s;
+  min-height: 260px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.doctor-card.selected {
+  border-color: #1976d2;
+  box-shadow: 0 12px 36px #2196f3;
+  transform: scale(1.04);
+  background: linear-gradient(120deg, #bbdefb 60%, #e3f2fd 100%);
+  animation: pulseTarjeta 0.5s;
+}
+
+.doctor-card h3 {
+  font-size: 1.35rem;
+  color: #1976d2;
+  margin-bottom: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.doctor-card p {
+  font-size: 1.08rem;
+  color: #444;
+  margin-bottom: 0.3rem;
+}
+
+.doctor-card .especialidad {
+  font-size: 1.08rem;
+  color: #1565c0;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+}
+
+.disponibilidad-list {
+  margin-top: 1.2rem;
+  background: #f5faff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px #e3f2fd;
+}
+
+.disponibilidad-list strong {
+  color: #1976d2;
+  font-size: 1.08rem;
+  margin-right: 0.7rem;
+}
+
+.horas-row {
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.hora-btn {
+  margin: 0.2rem 0.5rem 0.2rem 0;
+  padding: 0.5rem 1.3rem;
+  border-radius: 20px;
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  box-shadow: 0 2px 8px #bbdefb;
+  font-size: 1rem;
+  animation: btnFade 0.8s;
+}
+
+.hora-btn.selected {
+  background: #43a047;
+  color: #fff;
+  transform: scale(1.08);
+  box-shadow: 0 4px 18px #43a047;
+  animation: pulseTarjeta 0.5s;
+}
+
+.doctor-check {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #2196f3;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.4rem 1.2rem;
+  border-radius: 20px;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px #bbdefb;
+  animation: checkFade 0.5s;
+}
+
 @media (max-width: 700px) {
   .paciente-fase { max-width: 98vw; }
   .servicios-grid { grid-template-columns: 1fr; }
+  .doctores-grid { grid-template-columns: 1fr; }
+  .doctor-card { min-height: 220px; padding: 1.2rem 0.7rem; }
+  .disponibilidad-list { padding: 0.6rem; }
 }
