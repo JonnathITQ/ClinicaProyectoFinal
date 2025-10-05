@@ -10,7 +10,41 @@
     </p>
   </div>
   <div class="buttons">
-    <button class="btn">Citas Pendientes</button>
+    <button class="btn" (click)="abrirModalCitas()">Citas Pendientes</button>
     <button class="btn">Historial del paciente</button>
+  </div>
+
+  <!-- Modal de citas pendientes -->
+  <div class="modal" *ngIf="modalCitasAbierto" (click)="cerrarModalCitas()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Citas Pendientes</h2>
+      <div *ngIf="citasPendientes.length === 0">
+        <p>No hay citas pendientes.</p>
+      </div>
+      <div class="citas-list" *ngIf="citasPendientes.length > 0">
+        <div class="cita-card" *ngFor="let cita of citasPendientes">
+          <section>
+            <h3>Paciente</h3>
+            <p>{{ cita.id_paciente?.nombre || 'Sin datos' }} {{ cita.id_paciente?.apellido || '' }}</p>
+          </section>
+          <section>
+            <h3>Doctor</h3>
+            <p>{{ cita.id_doctor?.nombre || 'Sin datos' }} {{ cita.id_doctor?.apellido || '' }}</p>
+          </section>
+          <section>
+            <h3>Servicio</h3>
+            <p>{{ cita.id_servicio?.nombre || 'Sin datos' }}</p>
+          </section>
+          <section>
+            <h3>Detalles</h3>
+            <p><strong>Fecha:</strong> {{ cita.fecha_cita }}</p>
+            <p><strong>Hora:</strong> {{ cita.hora_inicio }} <span *ngIf="cita.hora_fin">- {{ cita.hora_fin }}</span></p>
+            <p><strong>Estado:</strong> {{ cita.estado }}</p>
+            <p><strong>Notas:</strong> {{ cita.notas || 'Sin notas' }}</p>
+          </section>
+        </div>
+      </div>
+      <button class="btn cerrar" (click)="cerrarModalCitas()">Cerrar</button>
+    </div>
   </div>
 </div>

@@ -27,7 +27,6 @@ export class Paciente implements OnInit {
     if (typeof window !== 'undefined' && window.localStorage) {
       const pacienteRaw = localStorage.getItem('paciente');
       let paciente = {};
-      // Solo parsea si el valor existe y no es la cadena "undefined" o "null"
       if (pacienteRaw && pacienteRaw !== 'undefined' && pacienteRaw !== 'null') {
         try {
           paciente = JSON.parse(pacienteRaw);
@@ -37,8 +36,6 @@ export class Paciente implements OnInit {
       }
       this.nombre = (paciente as any).nombre || 'Paciente';
       this.apellido = (paciente as any).apellido || '';
-
-      // Cargar servicios desde el backend
       this.cargarServicios();
     }
   }
@@ -46,7 +43,6 @@ export class Paciente implements OnInit {
   async cargarServicios() {
     const res = await fetch('http://localhost:3000/api/servicios');
     const data = await res.json();
-    console.log('Servicios:', data); // <-- Depuración
     this.servicios = data;
   }
 
@@ -64,15 +60,10 @@ export class Paciente implements OnInit {
   }
 
   async cargarDoctoresConDisponibilidad() {
-    // Obtén doctores
     const resDoc = await fetch('http://localhost:3000/api/doctor');
     const doctores = await resDoc.json();
-
-    // Obtén disponibilidad
     const resDisp = await fetch('http://localhost:3000/api/disponibilidad');
     const disponibilidad = await resDisp.json();
-
-    // Une doctores con su disponibilidad
     this.doctores = doctores.map((doc: Doctor) => {
       const disp = disponibilidad.find((d: any) => d.id_doctor === doc.id_doctor);
       return { ...doc, disponibilidad: disp ? disp.disponibilidad : [] };
@@ -93,7 +84,6 @@ export class Paciente implements OnInit {
   }
 
   async confirmarCita() {
-    // Obtén el paciente desde localStorage
     let paciente = {};
     if (typeof window !== 'undefined' && window.localStorage) {
       const pacienteRaw = localStorage.getItem('paciente');
@@ -108,6 +98,16 @@ export class Paciente implements OnInit {
           paciente = {};
         }
       }
+    }
+
+    // Validación extra
+    if (!(paciente as any).id_paciente) {
+      alert('No se encontró el ID del paciente. Por favor, inicia sesión nuevamente.');
+      return;
+    }
+    if (!this.doctorSeleccionado || !this.servicioSeleccionado || !this.fechaSeleccionada || !this.horaSeleccionada) {
+      alert('Completa todos los campos antes de confirmar la cita.');
+      return;
     }
 
     const cita = {
@@ -127,7 +127,6 @@ export class Paciente implements OnInit {
     });
     const data = await res.json();
     if (data.success) {
-      // Redirige al inicio
       window.location.href = '/';
     } else {
       alert('Error al guardar la cita: ' + data.message);
@@ -135,13 +134,14 @@ export class Paciente implements OnInit {
   }
 }
 
-// Si tienes una interfaz Doctor:
 interface Doctor {
   id_doctor: number;
   nombre: string;
   apellido: string;
   especialidad: string;
   correo: string;
-  // ...otros campos...
   disponibilidad?: any[];
 }
+
+
+

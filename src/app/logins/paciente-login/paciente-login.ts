@@ -37,6 +37,7 @@ export class PacienteLogin {
     const data = await res.json();
     if (data.success) {
       localStorage.setItem('token', data.token);
+      localStorage.setItem('paciente', JSON.stringify(data.paciente)); // <-- Guarda el paciente completo
       this.mensaje = 'Login exitoso';
       this.tipoMensaje = 'exito';
       setTimeout(() => {
