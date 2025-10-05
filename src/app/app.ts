@@ -5,10 +5,13 @@ import { Sidebar } from "./components/sidebar/sidebar";
 import { Footer } from "./components/footer/footer";
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CommonModule, Navbar, Sidebar, Footer],
+  standalone: true,
+  imports: [RouterOutlet, CommonModule, Navbar, Sidebar, Footer, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

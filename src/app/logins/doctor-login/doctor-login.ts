@@ -1,36 +1,37 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common'; 
+import { CommonModule } from '@angular/common';
+import { Component, NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-doctor-login',
-  imports: [CommonModule], 
   templateUrl: './doctor-login.html',
-  styleUrl: './doctor-login.css'
+  styleUrls: ['./doctor-login.css'],
+  imports: [CommonModule, RouterModule, FormsModule]
 })
 export class DoctorLogin {
   mensaje: string = '';
   tipoMensaje: 'error' | 'exito' | '' = '';
 
+  correo: string = '';
+  contrasena: string = ''; // Cambia aquí
+
   constructor(private router: Router) {}
 
   async onSubmit(event: Event) {
     event.preventDefault();
-    const form = event.target as HTMLFormElement;
-    const correo = (form['correo'] as HTMLInputElement).value.trim();
-    const contraseña = (form['password'] as HTMLInputElement).value;
 
-    if (!correo || !contraseña) {
+    if (!this.correo.trim() || !this.contrasena) { // Cambia aquí
       this.mensaje = 'Debe ingresar correo y contraseña.';
       this.tipoMensaje = 'error';
       return;
     }
 
     try {
-      const res = await fetch('http://localhost:3000/api/doctores/login', {
+      const res = await fetch('http://localhost:3000/api/doctor/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ correo, contraseña })
+        body: JSON.stringify({ correo: this.correo.trim(), contraseña: this.contrasena }) // Cambia aquí
       });
 
       const data = await res.json();

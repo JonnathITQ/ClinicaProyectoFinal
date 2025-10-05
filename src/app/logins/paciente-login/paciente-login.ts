@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common'; // <-- Importa CommonModule
+import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-paciente-login',
-  imports: [RouterModule, CommonModule], // <-- Agrega CommonModule aquí
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './paciente-login.html',
   styleUrl: './paciente-login.css'
 })
@@ -12,20 +14,25 @@ export class PacienteLogin {
   mensaje: string = '';
   tipoMensaje: 'error' | 'exito' | '' = '';
 
+  correo: string = '';
+  contrasena: string = '';
+
+  public router: Router; // Cambia de private a public
+
+  constructor(router: Router) {
+    this.router = router;
+  }
+
   async onSubmit(event: Event) {
     event.preventDefault();
-    const form = event.target as HTMLFormElement;
-    const correo = (form['correo'] as HTMLInputElement).value;
-    const password = (form['password'] as HTMLInputElement).value;
 
-    // Limpiar mensaje antes de enviar
     this.mensaje = '';
     this.tipoMensaje = '';
 
-    const res = await fetch('http://localhost:3000/api/usuarios/login', {
+    const res = await fetch('http://localhost:3000/api/paciente/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ correo: correo, contraseña: password })
+      body: JSON.stringify({ correo: this.correo, contrasena: this.contrasena })
     });
     const data = await res.json();
     if (data.success) {
@@ -33,7 +40,7 @@ export class PacienteLogin {
       this.mensaje = 'Login exitoso';
       this.tipoMensaje = 'exito';
       setTimeout(() => {
-        window.location.href = '/modulopaciente';
+        this.router.navigate(['/modulopaciente']);
       }, 1200);
     } else {
       this.mensaje = 'Error: ' + data.message;

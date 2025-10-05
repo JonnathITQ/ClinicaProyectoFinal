@@ -19,10 +19,10 @@
   </div>
   <form class="doctor-login-form" (submit)="onSubmit($event)">
     <label for="correo" class="doctor-login-label">Correo Institucional</label>
-    <input type="text" id="correo" name="correo" class="doctor-login-input" placeholder="ejemplo@gotitas.edu.ec">
+    <input type="text" id="correo" name="correo" class="doctor-login-input" placeholder="ejemplo@gotitas.edu.ec" [(ngModel)]="correo">
 
     <label for="password" class="doctor-login-label">Contraseña</label>
-    <input type="password" id="password" name="password" class="doctor-login-input" placeholder="Contraseña">
+    <input type="password" id="password" name="password" class="doctor-login-input" placeholder="Contraseña" [(ngModel)]="contrasena">
 
     <button type="submit" class="doctor-login-btn">Ingresar</button>
   </form>

@@ -1,4 +1,4 @@
-<button class="navbar-volver-btn" onclick="window.location.href='/'">
+<button class="navbar-volver-btn" (click)="router.navigate(['/'])">
   ← Volver
 </button>
 
@@ -20,15 +20,15 @@
   </div>
   <form class="paciente-login-form" (submit)="onSubmit($event)">
     <label for="correo" class="paciente-login-label">Correo electrónico</label>
-    <input type="text" id="correo" name="correo" class="paciente-login-input" placeholder="ejemplo@email.com">
+    <input type="text" id="correo" name="correo" class="paciente-login-input" placeholder="ejemplo@email.com" [(ngModel)]="correo">
 
-    <label for="password" class="paciente-login-label">Contraseña</label>
-    <input type="password" id="password" name="password" class="paciente-login-input" placeholder="Contraseña">
+    <label for="contrasena" class="paciente-login-label">Contraseña</label>
+    <input type="password" id="contrasena" name="contrasena" class="paciente-login-input" placeholder="Contraseña" [(ngModel)]="contrasena">
 
     <button type="submit" class="paciente-login-btn">Ingresar</button>
     <div class="paciente-login-links">
-      <a href="/registropaciente" class="paciente-login-registro">Registrar usuario</a>
-      <a href="/recuperacionpaciente" class="paciente-login-olvide">Olvidé mi contraseña</a>
+      <a routerLink="/registropaciente" class="paciente-login-registro">Registrar usuario</a>
+      <a routerLink="/recuperacionpaciente" class="paciente-login-olvide">Olvidé mi contraseña</a>
     </div>
   </form>
 </div>

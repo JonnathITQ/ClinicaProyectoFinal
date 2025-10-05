@@ -1,0 +1,328 @@
+/* ======== LOGOUT BUTTON ======== */
+.logout-btn {
+  position: fixed;
+  top: 32px;
+  right: 48px;
+  background: linear-gradient(90deg, #ff4b2b 0%, #ff416c 100%);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 32px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0 6px 24px rgba(255,75,43,0.18);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  z-index: 100;
+  letter-spacing: 1px;
+}
+.logout-btn:hover {
+  background: linear-gradient(90deg, #ff416c 0%, #ff4b2b 100%);
+  transform: scale(1.09);
+  box-shadow: 0 10px 32px rgba(255,65,108,0.22);
+}
+
+/* ======== PANEL CONTAINER ======== */
+.doctor-panel {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.97);
+  border-radius: 28px;
+  box-shadow: 0 12px 40px rgba(33,147,176,0.16);
+  padding: 48px 36px 38px 36px;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  position: relative;
+  margin-top: 120px;         /* Baja el panel */
+}
+
+/* ======== AVATAR ======== */
+.doctor-avatar {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #43cea2 0%, #2193b0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(33,147,176,0.13);
+}
+.doctor-avatar img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #fff;
+  box-shadow: 0 2px 8px #2193b044;
+}
+
+/* ======== PANEL TITLE ======== */
+.panel-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2193b0;
+  margin-bottom: 0;
+  letter-spacing: 1.5px;
+  text-shadow: 0 4px 16px #6dd5ed44;
+  background: linear-gradient(90deg, #43cea2 0%, #2193b0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ======== PANEL DESCRIPTION ======== */
+.panel-desc {
+  font-size: 1.05rem;
+  color: #185a9d;
+  margin-bottom: 0;
+  line-height: 1.6;
+  background: rgba(67,206,162,0.07);
+  border-radius: 12px;
+  padding: 12px 8px;
+  box-shadow: 0 2px 8px rgba(33,147,176,0.07);
+}
+.panel-tip {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.98rem;
+  color: #2193b0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* ======== BUTTONS GROUP ======== */
+.panel-buttons {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* ======== PANEL BUTTONS ======== */
+.panel-btn {
+  background: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 18px 0;
+  font-size: 1.18rem;
+  font-weight: 700;
+  box-shadow: 0 6px 24px rgba(33,147,176,0.13);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  outline: none;
+  letter-spacing: 1px;
+}
+.panel-btn:hover {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  transform: scale(1.07);
+  box-shadow: 0 12px 32px rgba(33,147,176,0.18);
+}
+
+/* ======== MODAL DISPONIBILIDAD ======== */
+.modal-disponibilidad {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(176, 222, 255, 0.18);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px #90caf9;
+  padding: 48px 48px 40px 48px;
+  min-width: 540px;
+  max-width: 900px;
+  text-align: center;
+  animation: modalPop 0.5s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+}
+
+@keyframes modalPop {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ======== TABLA DISPONIBILIDAD ======== */
+.tabla-disponibilidad {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 14px;
+  margin-bottom: 36px;
+  font-size: 1.12rem;
+  background: #e3f2fd;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px #bbdefb;
+  overflow: hidden;
+  table-layout: fixed;
+}
+
+.tabla-disponibilidad th, .tabla-disponibilidad td {
+  border: none;
+  padding: 18px 12px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.tabla-disponibilidad th {
+  background: linear-gradient(90deg, #1976d2 0%, #90caf9 100%);
+  color: #fff;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 1.18rem;
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 2px 8px #90caf944;
+}
+
+.tabla-disponibilidad td {
+  background: #f5fbff;
+  color: #1976d2;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px #bbdefb44;
+  font-size: 1.08rem;
+  transition: background 0.2s;
+}
+
+.tabla-disponibilidad tbody tr:hover td {
+  background: #e3f2fd;
+}
+
+/* Mejor orden y agrupación de horarios */
+.tabla-disponibilidad td:nth-child(3) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px 24px;
+  min-width: 220px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.tabla-disponibilidad .horarios-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 12px 32px;
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.tabla-disponibilidad label {
+  background: #e3f2fd;
+  border-radius: 8px;
+  padding: 6px 12px;
+  margin: 0;
+  font-size: 1.08rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 4px #bbdefb22;
+  transition: background 0.2s, color 0.2s;
+}
+
+.tabla-disponibilidad label:hover {
+  background: #bbdefb;
+  color: #1976d2;
+}
+
+.hora-checkbox {
+  margin-right: 6px;
+  accent-color: #1976d2;
+  transform: scale(1.15);
+}
+
+/* ======== BOTONES MODAL ======== */
+.modal-content .panel-btn {
+  margin: 16px 0;
+  width: 85%;
+  max-width: 320px;
+  background: linear-gradient(90deg, #90caf9 0%, #1976d2 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px #bbdefb;
+  transition: background 0.2s, transform 0.2s;
+  font-size: 1.12rem;
+  padding: 16px 0;
+}
+
+.modal-content .panel-btn:hover {
+  background: linear-gradient(90deg, #1976d2 0%, #90caf9 100%);
+  transform: scale(1.05);
+}
+
+/* ======== RESPONSIVE ======== */
+@media (max-width: 600px) {
+  .doctor-panel {
+    max-width: 98vw;
+    padding: 32px 8vw 28px 8vw;
+    border-radius: 18px;
+  }
+  .logout-btn {
+    top: 18px;
+    right: 16px;
+    padding: 10px 18px;
+    font-size: 1rem;
+  }
+  .panel-title {
+    font-size: 1.5rem;
+  }
+  .panel-btn {
+    padding: 14px 0;
+    font-size: 1rem;
+  }
+  .doctor-avatar {
+    width: 60px;
+    height: 60px;
+  }
+  .doctor-avatar img {
+    width: 44px;
+    height: 44px;
+  }
+  .modal-content {
+    min-width: 95vw;
+    padding: 18px 2vw;
+  }
+  .tabla-disponibilidad th, .tabla-disponibilidad td {
+    padding: 10px 4px;
+    font-size: 0.98rem;
+  }
+  .tabla-disponibilidad td:nth-child(3) {
+    min-width: 120px;
+    gap: 8px 8px;
+  }
+}
+
+/* ======== RESPONSIVE MODAL ======== */
+@media (max-width: 900px) {
+  .modal-content {
+    min-width: 98vw;
+    max-width: 98vw;
+    padding: 18px 2vw;
+  }
+  .tabla-disponibilidad th, .tabla-disponibilidad td {
+    padding: 12px 4px;
+    font-size: 0.98rem;
+  }
+  .tabla-disponibilidad td:nth-child(3) {
+    min-width: 120px;
+    gap: 8px 8px;
+  }
+}
