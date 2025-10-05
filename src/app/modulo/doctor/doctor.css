@@ -216,6 +216,49 @@ h1 {
   width: 100%;
 }
 
+.filtro-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #90caf9;
+  font-size: 1rem;
+  outline: none;
+}
+
+.pacientes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.paciente-card {
+  background: #f1f8e9;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px #c5e1a533;
+  padding: 14px 12px;
+  animation: fadeIn 0.7s;
+}
+
+.paciente-card section {
+  margin-bottom: 4px;
+}
+
+.paciente-card h3 {
+  margin: 0 0 6px 0;
+  font-size: 1.1rem;
+  color: #388e3c;
+  font-weight: 600;
+  text-align: left;
+}
+
+.paciente-card p {
+  margin: 0 0 2px 0;
+  font-size: 1rem;
+  color: #333;
+  text-align: left;
+}
+
 @media (max-width: 600px) {
   .modal-content {
     min-width: 90vw;

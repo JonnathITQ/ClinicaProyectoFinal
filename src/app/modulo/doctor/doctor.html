@@ -11,7 +11,7 @@
   </div>
   <div class="buttons">
     <button class="btn" (click)="abrirModalCitas()">Citas Pendientes</button>
-    <button class="btn">Historial del paciente</button>
+    <button class="btn" (click)="abrirModalHistorial()">Historial del paciente</button>
   </div>
 
   <!-- Modal de citas pendientes -->
@@ -45,6 +45,34 @@
         </div>
       </div>
       <button class="btn cerrar" (click)="cerrarModalCitas()">Cerrar</button>
+    </div>
+  </div>
+
+  <!-- Modal de historial de pacientes -->
+  <div class="modal" *ngIf="modalHistorialAbierto" (click)="cerrarModalHistorial()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <h2>Historial de Pacientes</h2>
+      <input
+        type="text"
+        class="filtro-input"
+        [(ngModel)]="filtroPaciente"
+        placeholder="Buscar por nombre, apellido o cédula"
+      />
+      <div *ngIf="pacientesFiltrados.length === 0">
+        <p>No se encontraron pacientes.</p>
+      </div>
+      <div class="pacientes-list" *ngIf="pacientesFiltrados.length > 0">
+        <div class="paciente-card" *ngFor="let paciente of pacientesFiltrados">
+          <section>
+            <h3>{{ paciente.nombre }} {{ paciente.apellido }}</h3>
+            <p><strong>Cédula:</strong> {{ paciente.cedula }}</p>
+            <p><strong>Correo:</strong> {{ paciente.correo }}</p>
+            <p><strong>Edad:</strong> {{ paciente.edad }}</p>
+            <p><strong>Dirección:</strong> {{ paciente.direccion }}</p>
+          </section>
+        </div>
+      </div>
+      <button class="btn cerrar" (click)="cerrarModalHistorial()">Cerrar</button>
     </div>
   </div>
 </div>

@@ -76,4 +76,14 @@ router.post('/login', async (req, res) => {
   res.json({ success: true, paciente, token: '...' });
 });
 
+// Obtener todos los pacientes
+router.get('/', async (req, res) => {
+  try {
+    const pacientes = await Paciente.find();
+    res.json(pacientes);
+  } catch (err) {
+    res.status(500).json({ success: false, message: 'Error al obtener pacientes.' });
+  }
+});
+
 module.exports = router;
