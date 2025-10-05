@@ -23,6 +23,9 @@ export class Paciente implements OnInit {
   fechaSeleccionada: string = '';
   horaSeleccionada: string = '';
 
+  modalVisible: boolean = false;
+  modalMensaje: string = '';
+
   ngOnInit() {
     if (typeof window !== 'undefined' && window.localStorage) {
       const pacienteRaw = localStorage.getItem('paciente');
@@ -127,8 +130,20 @@ export class Paciente implements OnInit {
     });
     const data = await res.json();
     if (data.success) {
-      // Redirige al inicio
-      window.location.href = '/';
+      this.modalMensaje = 'Felicidades, su cita fue agendada con éxito. Esperamos verle pronto';
+      this.modalVisible = true;
+
+      // Espera 5 segundos y activa la animación de salida
+      setTimeout(() => {
+        const modal = document.querySelector('.modal-contenido');
+        if (modal) modal.classList.add('salida');
+      }, 5000);
+
+      // Espera la animación de salida y redirige
+      setTimeout(() => {
+        this.modalVisible = false;
+        window.location.href = '/';
+      }, 5700);
     } else {
       alert('Error al guardar la cita: ' + data.message);
     }

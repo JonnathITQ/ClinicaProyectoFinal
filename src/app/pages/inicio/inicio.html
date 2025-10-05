@@ -101,4 +101,8 @@
     <p>Agenda tu cita y déjanos cuidar de tu salud dental.</p>
     <a href="/pacientelogin" class="cta-btn grande">Solicitar cita</a>
   </div>
+
+  <div *ngIf="mensajeNotificacion" class="notificacion-exito">
+    {{ mensajeNotificacion }}
+  </div>
 </div>

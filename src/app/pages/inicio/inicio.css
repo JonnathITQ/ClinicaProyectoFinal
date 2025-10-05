@@ -596,3 +596,14 @@ h2 {
     padding: 0.3rem 0.2rem 0.2rem 0.2rem;
   }
 }
+
+/* home.css */
+.notificacion-exito {
+  background: #4caf50;
+  color: white;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}

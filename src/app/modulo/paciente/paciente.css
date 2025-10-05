@@ -230,6 +230,44 @@
   animation: checkFade 0.5s;
 }
 
+.modal-confirmacion {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+.modal-contenido {
+  background: #4caf50;
+  color: white;
+  padding: 2em 3em;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2em;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  animation: modalIn 0.9s cubic-bezier(.68,-0.55,.27,1.55);
+  /* La animación de salida se agregará dinámicamente */
+}
+
+.modal-contenido.salida {
+  animation: modalOut 0.7s cubic-bezier(.68,-0.55,.27,1.55) forwards;
+}
+
+/* Animación de entrada */
+@keyframes modalIn {
+  0% { opacity: 0; transform: scale(0.7) rotate(-10deg);}
+  60% { opacity: 1; transform: scale(1.1) rotate(2deg);}
+  100% { opacity: 1; transform: scale(1) rotate(0deg);}
+}
+
+/* Animación de salida */
+@keyframes modalOut {
+  0% { opacity: 1; transform: scale(1) rotate(0deg);}
+  100% { opacity: 0; transform: scale(0.7) rotate(10deg);}
+}
+
 @media (max-width: 700px) {
   .paciente-fase { max-width: 98vw; }
   .servicios-grid { grid-template-columns: 1fr; }
