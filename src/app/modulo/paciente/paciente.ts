@@ -24,18 +24,29 @@ export class Paciente implements OnInit {
   horaSeleccionada: string = '';
 
   ngOnInit() {
-    // Simulación: Obtén los datos del paciente (puedes usar localStorage o una API real)
-    const paciente = JSON.parse(localStorage.getItem('paciente') || '{}');
-    this.nombre = paciente.nombre || 'Paciente';
-    this.apellido = paciente.apellido || '';
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const pacienteRaw = localStorage.getItem('paciente');
+      let paciente = {};
+      // Solo parsea si el valor existe y no es la cadena "undefined" o "null"
+      if (pacienteRaw && pacienteRaw !== 'undefined' && pacienteRaw !== 'null') {
+        try {
+          paciente = JSON.parse(pacienteRaw);
+        } catch (e) {
+          paciente = {};
+        }
+      }
+      this.nombre = (paciente as any).nombre || 'Paciente';
+      this.apellido = (paciente as any).apellido || '';
 
-    // Cargar servicios desde el backend
-    this.cargarServicios();
+      // Cargar servicios desde el backend
+      this.cargarServicios();
+    }
   }
 
   async cargarServicios() {
     const res = await fetch('http://localhost:3000/api/servicios');
     const data = await res.json();
+    console.log('Servicios:', data); // <-- Depuración
     this.servicios = data;
   }
 
@@ -83,10 +94,24 @@ export class Paciente implements OnInit {
 
   async confirmarCita() {
     // Obtén el paciente desde localStorage
-    const paciente = JSON.parse(localStorage.getItem('paciente') || '{}');
+    let paciente = {};
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const pacienteRaw = localStorage.getItem('paciente');
+      if (
+        pacienteRaw &&
+        pacienteRaw !== 'undefined' &&
+        pacienteRaw !== 'null'
+      ) {
+        try {
+          paciente = JSON.parse(pacienteRaw);
+        } catch (e) {
+          paciente = {};
+        }
+      }
+    }
 
     const cita = {
-      id_paciente: paciente.id_paciente,
+      id_paciente: (paciente as any).id_paciente,
       id_doctor: this.doctorSeleccionado,
       id_servicio: this.servicioSeleccionado,
       fecha_cita: this.fechaSeleccionada,
