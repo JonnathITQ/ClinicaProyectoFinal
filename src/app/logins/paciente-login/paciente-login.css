@@ -120,6 +120,14 @@ body {
   margin-top: 1rem;
 }
 
+.paciente-login-links button {
+  border: none;
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
 .paciente-login-registro,
 .paciente-login-olvide {
   color: #1976d2;

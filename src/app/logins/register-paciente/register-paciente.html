@@ -1,4 +1,4 @@
-<button class="navbar-volver-btn" onclick="window.location.href='pacientelogin'">
+<button class="navbar-volver-btn" (click)="router.navigate(['/pacientelogin'])">
   ← Volver
 </button>
 
@@ -19,18 +19,36 @@
     </div>
   </div>
   <form class="doctor-login-form" (submit)="onSubmit($event)">
-    <label class="doctor-login-label" for="nombre">Nombre</label>
-    <input class="doctor-login-input" type="text" id="nombre" name="nombre">
+    <!-- Fase 1 -->
+    <div *ngIf="fase === 1">
+      <label class="doctor-login-label" for="nombre">Nombre</label>
+      <input class="doctor-login-input" type="text" id="nombre" name="nombre" [(ngModel)]="nombre">
 
-    <label class="doctor-login-label" for="apellido">Apellido</label>
-    <input class="doctor-login-input" type="text" id="apellido" name="apellido">
+      <label class="doctor-login-label" for="apellido">Apellido</label>
+      <input class="doctor-login-input" type="text" id="apellido" name="apellido" [(ngModel)]="apellido">
 
-    <label class="doctor-login-label" for="correo">Correo</label>
-    <input class="doctor-login-input" type="text" id="correo" name="correo">
+      <label class="doctor-login-label" for="direccion">Dirección</label>
+      <input class="doctor-login-input" type="text" id="direccion" name="direccion" [(ngModel)]="direccion">
 
-    <label class="doctor-login-label" for="contraseña">Contraseña</label>
-    <input class="doctor-login-input" type="password" id="contraseña" name="contraseña">
+      <label class="doctor-login-label" for="edad">Edad</label>
+      <input class="doctor-login-input" type="number" id="edad" name="edad" [(ngModel)]="edad">
 
-    <button type="submit" class="doctor-login-btn">Registrarse</button>
+      <button type="button" class="doctor-login-btn" (click)="siguienteFase()">Siguiente</button>
+    </div>
+
+    <!-- Fase 2 -->
+    <div *ngIf="fase === 2">
+      <label class="doctor-login-label" for="cedula">Cédula</label>
+      <input class="doctor-login-input" type="text" id="cedula" name="cedula" [(ngModel)]="cedula">
+
+      <label class="doctor-login-label" for="correo">Correo</label>
+      <input class="doctor-login-input" type="text" id="correo" name="correo" [(ngModel)]="correo">
+
+      <label class="doctor-login-label" for="contrasena">Contraseña</label>
+      <input class="doctor-login-input" type="password" id="contrasena" name="contrasena" [(ngModel)]="contrasena">
+
+      <button type="button" class="doctor-login-btn" (click)="fase = 1">Atrás</button>
+      <button type="submit" class="doctor-login-btn">Registrarse</button>
+    </div>
   </form>
 </div>

@@ -14,6 +14,7 @@ const doctorRoutes = require('./routes/doctor');
 const historialRoutes = require('./routes/historial');
 const pacienteRoutes = require('./routes/paciente');
 const serviciosRoutes = require('./routes/servicios');
+const adminRoutes = require('./routes/admin'); // <-- Añade esta línea
 
 // Usa las rutas
 app.use('/api/citas', citasRoutes);
@@ -22,6 +23,7 @@ app.use('/api/doctor', doctorRoutes);
 app.use('/api/historial', historialRoutes);
 app.use('/api/paciente', pacienteRoutes);
 app.use('/api/servicios', serviciosRoutes);
+app.use('/api/admin', adminRoutes); // <-- Añade esta línea
 
 // Puerto
 const PORT = process.env.PORT || 3000;

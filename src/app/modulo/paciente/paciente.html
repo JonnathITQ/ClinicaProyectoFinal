@@ -1,1 +1,76 @@
-<p>paciente works!</p>
+<div class="paciente-bienvenida">
+  Te damos la bienvenida, {{ nombre }} {{ apellido }}. Esta es la sección para solicitar tu cita médica.
+</div>
+
+<!-- Fase 1: Selección de servicio -->
+<div *ngIf="fase === 1" class="paciente-fase">
+  <h2>Servicios disponibles</h2>
+  <div class="servicios-grid">
+    <div
+      *ngFor="let servicio of servicios"
+      class="servicio-card anim-servicio"
+      [class.selected]="servicio.id_servicio === servicioSeleccionado"
+      (click)="seleccionarServicio(servicio.id_servicio)"
+    >
+      <h3>{{ servicio.nombre }}</h3>
+      <p>{{ servicio.descripcion }}</p>
+      <p><strong>Duración:</strong> {{ servicio.duracion_minutos }} minutos</p>
+      <p><strong>Precio:</strong> ${{ servicio.precio }}</p>
+      <div class="servicio-check" *ngIf="servicio.id_servicio === servicioSeleccionado">
+        ✓ Seleccionado
+      </div>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="siguiente-btn animar-btn"
+    [disabled]="!servicioSeleccionado"
+    (click)="siguienteFase()"
+  >
+    Siguiente
+  </button>
+</div>
+
+<!-- Fase 2: Selección de doctor y horario -->
+<div *ngIf="fase === 2" class="paciente-fase">
+  <h2>Fase 2: Disponibilidad de doctores</h2>
+  <p>Has seleccionado el servicio: <strong>{{ servicioNombreSeleccionado }}</strong></p>
+  <div class="doctores-grid">
+    <div
+      *ngFor="let doctor of doctores"
+      class="doctor-card anim-servicio"
+      [class.selected]="doctor.id_doctor === doctorSeleccionado"
+      (click)="seleccionarDoctor(doctor.id_doctor)"
+    >
+      <h3>{{ doctor.nombre }} {{ doctor.apellido }}</h3>
+      <p><strong>Especialidad:</strong> {{ doctor.especialidad }}</p>
+      <p><strong>Correo:</strong> {{ doctor.correo }}</p>
+      <div class="disponibilidad-list">
+        <div *ngFor="let dia of doctor.disponibilidad">
+          <strong>{{ dia.fecha }}:</strong>
+          <span *ngFor="let hora of dia.horas">
+            <button
+              type="button"
+              class="hora-btn"
+              [class.selected]="doctor.id_doctor === doctorSeleccionado && dia.fecha === fechaSeleccionada && hora === horaSeleccionada"
+              (click)="seleccionarHorario(doctor.id_doctor, dia.fecha, hora, $event)"
+            >
+              {{ hora }}
+            </button>
+          </span>
+        </div>
+      </div>
+      <div class="doctor-check" *ngIf="doctor.id_doctor === doctorSeleccionado">
+        ✓ Doctor seleccionado
+      </div>
+    </div>
+  </div>
+  <button
+    type="button"
+    class="siguiente-btn animar-btn"
+    [disabled]="!doctorSeleccionado || !fechaSeleccionada || !horaSeleccionada"
+    (click)="confirmarCita()"
+  >
+    Confirmar cita
+  </button>
+</div>

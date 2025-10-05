@@ -17,4 +17,14 @@ router.post('/login', async (req, res) => {
   }
 });
 
+// Endpoint GET para obtener todos los doctores
+router.get('/', async (req, res) => {
+  try {
+    const doctores = await Doctor.find();
+    res.json(doctores);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 module.exports = router;

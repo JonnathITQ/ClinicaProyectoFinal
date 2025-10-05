@@ -26,9 +26,9 @@
     <input type="password" id="contrasena" name="contrasena" class="paciente-login-input" placeholder="Contraseña" [(ngModel)]="contrasena">
 
     <button type="submit" class="paciente-login-btn">Ingresar</button>
-    <div class="paciente-login-links">
-      <a routerLink="/registropaciente" class="paciente-login-registro">Registrar usuario</a>
-      <a routerLink="/recuperacionpaciente" class="paciente-login-olvide">Olvidé mi contraseña</a>
-    </div>
   </form>
+  <div class="paciente-login-links">
+    <button type="button" class="paciente-login-registro" (click)="router.navigate(['/registropaciente'])">Registrar usuario</button>
+    <button type="button" class="paciente-login-olvide" (click)="router.navigate(['/recuperacionpaciente'])">Olvidé mi contraseña</button>
+  </div>
 </div>
