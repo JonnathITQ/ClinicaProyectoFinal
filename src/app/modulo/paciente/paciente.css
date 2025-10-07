@@ -268,6 +268,44 @@
   100% { opacity: 0; transform: scale(0.7) rotate(10deg);}
 }
 
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30, 41, 59, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 36px 32px;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.18);
+  min-width: 320px;
+  max-width: 400px;
+  border: 1px solid #e3e8ee;
+  text-align: center;
+}
+
+.btn-confirmar {
+  margin-top: 18px;
+  padding: 12px 32px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #1976d2 60%, #64b5f6 100%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #bbdefb;
+  transition: background 0.2s;
+}
+.btn-confirmar:hover {
+  background: linear-gradient(90deg, #2563eb 60%, #1e40af 100%);
+}
+
 @media (max-width: 700px) {
   .paciente-fase { max-width: 98vw; }
   .servicios-grid { grid-template-columns: 1fr; }

@@ -1,0 +1,195 @@
+/* Contenedor principal */
+.crud-container {
+  max-width: 1100px;
+  margin: 100px auto 200px auto;
+  padding: 32px 28px;
+  background: #f8fafc;
+  border-radius: 14px;
+  box-shadow: 0 6px 32px rgba(30, 64, 175, 0.10);
+  border: 1px solid #e3e8ee;
+}
+
+/* Título principal */
+.crud-container h2, .crud-container h1 {
+  color: #1e293b;
+  font-weight: 700;
+  margin-bottom: 24px;
+  letter-spacing: 0.5px;
+}
+
+.crud-container h2 {
+  font-size: 2.2rem;
+  color: #1976d2;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 28px;
+  text-align: center;
+  background: linear-gradient(90deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 10px;
+  padding: 18px 0;
+  box-shadow: 0 2px 12px rgba(30, 64, 175, 0.08);
+  border-bottom: 3px solid #90caf9;
+}
+
+/* Botones principales */
+.btn-create, .btn-save, .btn-cancel, .btn-edit, .btn-delete {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(30, 64, 175, 0.07);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+.btn-create { background: linear-gradient(90deg, #2563eb 60%, #1e40af 100%); color: #fff; }
+.btn-save   { background: linear-gradient(90deg, #22c55e 60%, #16a34a 100%); color: #fff; }
+.btn-cancel { background: #f3f4f6; color: #334155; border: 1px solid #e2e8f0; }
+.btn-edit   { background: linear-gradient(90deg, #1976d2 60%, #64b5f6 100%); color: #fff; }
+.btn-delete { background: linear-gradient(90deg, #ef4444 60%, #b91c1c 100%); color: #fff; }
+
+.btn-create:hover, .btn-save:hover, .btn-edit:hover, .btn-delete:hover {
+  box-shadow: 0 4px 16px rgba(30, 64, 175, 0.13);
+  transform: translateY(-2px) scale(1.03);
+  opacity: 0.92;
+}
+.btn-cancel:hover {
+  background: #e2e8f0;
+}
+
+/* Botón Volver */
+.btn-volver {
+  padding: 16px 38px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #e3f2fd 60%, #bbdefb 100%);
+  color: #1976d2;
+  box-shadow: 0 4px 16px #bbdefb;
+  border: 2px solid #90caf9;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-bottom: 32px;
+  margin-top: 10px;
+  letter-spacing: 1px;
+}
+.btn-volver:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #64b5f6 100%);
+  color: #fff;
+  border-color: #1976d2;
+  box-shadow: 0 8px 32px #90caf9;
+}
+
+/* Tabla de doctores */
+.doctor-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 32px;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(30, 64, 175, 0.07);
+}
+
+.doctor-table th, .doctor-table td {
+  border-bottom: 1px solid #e5e7eb;
+  padding: 12px 10px;
+  text-align: left;
+}
+
+.doctor-table th {
+  background: #f1f5f9;
+  font-weight: 700;
+  color: #2563eb;
+  letter-spacing: 0.2px;
+}
+
+.doctor-table tr:last-child td {
+  border-bottom: none;
+}
+
+.doctor-table tr:hover td {
+  background: #f3f4f6;
+  transition: background 0.2s;
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(30, 41, 59, 0.30);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background: #fff;
+  padding: 36px 32px;
+  border-radius: 14px;
+  box-shadow: 0 8px 32px rgba(30, 64, 175, 0.18);
+  min-width: 370px;
+  max-width: 440px;
+  border: 1px solid #e3e8ee;
+}
+
+.modal-form .modal-row {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.modal-form label {
+  font-weight: 500;
+  color: #334155;
+  margin-bottom: 6px;
+  display: block;
+  font-size: 15px;
+}
+
+.modal-form input {
+  flex: 1;
+  padding: 9px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 5px;
+  font-size: 15px;
+  background: #f8fafc;
+  transition: border 0.2s;
+}
+
+.modal-form input:focus {
+  border: 1.5px solid #2563eb;
+  outline: none;
+  background: #fff;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+  justify-content: flex-end;
+  flex-direction: row; /* Asegura alineación horizontal */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .crud-container, .modal-content {
+    padding: 14px;
+    min-width: unset;
+    max-width: 98vw;
+  }
+  .modal-form .modal-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .doctor-table th, .doctor-table td {
+    padding: 8px 6px;
+    font-size: 14px;
+  }
+}

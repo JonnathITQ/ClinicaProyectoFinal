@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -10,6 +10,9 @@ import { RouterModule } from '@angular/router';
 })
 export class Inicio implements OnInit {
   mensajeNotificacion: string = '';
+  private logoClickCount = 0;
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     if (typeof window !== 'undefined' && window.localStorage) {
@@ -19,6 +22,14 @@ export class Inicio implements OnInit {
         // Borra el mensaje después de mostrarlo
         localStorage.removeItem('notificacion');
       }
+    }
+  }
+
+  public logoClick() {
+    this.logoClickCount++;
+    if (this.logoClickCount >= 4) {
+      this.logoClickCount = 0;
+      this.router.navigate(['/adminlogin']);
     }
   }
 }

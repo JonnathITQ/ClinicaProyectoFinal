@@ -1,0 +1,84 @@
+.login-container {
+  max-width: 400px;
+  margin: 150px auto 200px auto;
+  padding: 2em;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 32px rgba(176,92,255,0.08);
+  border: 2px solid #90caf9;
+}
+
+h2 {
+  text-align: center;
+  color: #1976d2;
+  margin-bottom: 1.5em;
+}
+
+.form-group {
+  margin-bottom: 1.5em;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+.form-control {
+  width: 90%;
+  padding: 0.8em;
+  border-radius: 8px;
+  border: 1.5px solid #90caf9;
+  font-size: 1.1em;
+  box-shadow: 0 2px 8px #bbdefb;
+  margin-bottom: 0.5em;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 0.8em;
+  background: linear-gradient(90deg, #1976d2 60%, #64b5f6 100%);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 12px;
+  border: none;
+  font-size: 1.15em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #bbdefb;
+  transition: background 0.2s;
+}
+
+.btn-login:disabled {
+  background: #bbdefb;
+  color: #90caf9;
+  cursor: not-allowed;
+}
+
+.error-msg {
+  color: #c2185b;
+  text-align: center;
+  margin-top: 1em;
+  font-weight: 600;
+}
+
+/* --- Botón Volver fuera del contenedor --- */
+.btn-volver {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  background: linear-gradient(90deg, #e3f2fd 60%, #bbdefb 100%);
+  color: #1976d2;
+  box-shadow: 0 2px 8px #bbdefb;
+  border: 1.5px solid #90caf9;
+  transition: background 0.2s, color 0.2s;
+  margin-bottom: 24px;
+}
+.btn-volver:hover {
+  background: linear-gradient(90deg, #1976d2 60%, #64b5f6 100%);
+  color: #fff;
+  border-color: #1976d2;
+}

@@ -1,0 +1,90 @@
+<a class="btn-volver" routerLink="/" style="margin-bottom: 24px; text-decoration: none;">Volver</a>
+<div class="crud-container">
+  <h2>Gestión de Doctores</h2>
+  <button class="btn-create" (click)="openModal()">Crear Doctor</button>
+
+  <div *ngIf="showModal" class="modal-backdrop">
+    <div class="modal-content">
+      <h3>{{ editMode ? 'Editar Doctor' : 'Crear Doctor' }}</h3>
+      <form (ngSubmit)="saveDoctor()" #doctorFormRef="ngForm" class="modal-form">
+        <div class="modal-row">
+          <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" [(ngModel)]="doctorForm.nombre" name="nombre" placeholder="Nombre" required />
+          </div>
+          <div>
+            <label for="apellido">Apellido</label>
+            <input type="text" id="apellido" [(ngModel)]="doctorForm.apellido" name="apellido" placeholder="Apellido" required />
+          </div>
+        </div>
+        <div class="modal-row">
+          <div>
+            <label for="correo">Correo</label>
+            <input type="email" id="correo" [(ngModel)]="doctorForm.correo" name="correo" placeholder="Correo" required />
+          </div>
+          <div>
+            <label for="contrasena">Contraseña</label>
+            <input type="password" id="contrasena" [(ngModel)]="doctorForm.contrasena" name="contrasena" placeholder="Contraseña" required />
+          </div>
+        </div>
+        <div class="modal-row">
+          <div>
+            <label for="rol">Rol</label>
+            <input type="text" id="rol" [(ngModel)]="doctorForm.rol" name="rol" placeholder="Rol" />
+          </div>
+          <div>
+            <label for="cedula">Cédula</label>
+            <input type="text" id="cedula" [(ngModel)]="doctorForm.cedula" name="cedula" placeholder="Cédula" />
+          </div>
+        </div>
+        <div class="modal-row">
+          <div>
+            <label for="direccion">Dirección</label>
+            <input type="text" id="direccion" [(ngModel)]="doctorForm.direccion" name="direccion" placeholder="Dirección" />
+          </div>
+          <div>
+            <label for="edad">Edad</label>
+            <input type="number" id="edad" [(ngModel)]="doctorForm.edad" name="edad" placeholder="Edad" min="18" />
+          </div>
+        </div>
+        <div class="modal-row">
+          <div>
+            <label for="especialidad">Especialidad</label>
+            <input type="text" id="especialidad" [(ngModel)]="doctorForm.especialidad" name="especialidad" placeholder="Especialidad" />
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn-save" [disabled]="doctorFormRef.invalid">{{ editMode ? 'Actualizar' : 'Crear' }}</button>
+          <button type="button" class="btn-cancel" (click)="closeModal()">Cancelar</button>
+        </div>
+        <div *ngIf="notificacion" [ngStyle]="{'color': notificacionColor, 'margin-top': '1em', 'font-weight': '600'}">
+          {{ notificacion }}
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <table class="doctor-table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Correo</th>
+        <th>Contraseña</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let doctor of doctores">
+        <td>{{ doctor.nombre }}</td>
+        <td>{{ doctor.apellido }}</td>
+        <td>{{ doctor.correo }}</td>
+        <td>{{ doctor.contrasena }}</td>
+        <td>
+          <button class="btn-edit" (click)="editDoctor(doctor)">Editar</button>
+          <button class="btn-delete" (click)="deleteDoctor(doctor._id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

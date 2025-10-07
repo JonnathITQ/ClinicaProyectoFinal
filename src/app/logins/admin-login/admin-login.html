@@ -1,0 +1,34 @@
+<a class="btn-volver" routerLink="/" style="margin-bottom: 24px; text-decoration: none;">Volver</a>
+<div class="login-container">
+  <h2>Login Administrador</h2>
+  <form (ngSubmit)="onSubmit()" #adminLoginForm="ngForm">
+    <div class="form-group">
+      <label for="correo">Correo</label>
+      <input
+        type="email"
+        id="correo"
+        name="correo"
+        [(ngModel)]="correo"
+        required
+        class="form-control"
+        placeholder="Correo del administrador"
+      />
+    </div>
+    <div class="form-group">
+      <label for="contraseña">Contraseña</label>
+      <input
+        type="password"
+        id="contrasena"
+        name="contrasena"
+        [(ngModel)]="contrasena"
+        required
+        class="form-control"
+        placeholder="Contraseña"
+      />
+    </div>
+    <button type="submit" class="btn-login" [disabled]="adminLoginForm.invalid">Ingresar</button>
+    <div *ngIf="notificacion" [ngStyle]="{'color': notificacionColor, 'text-align': 'center', 'margin-top': '1em', 'font-weight': '600'}">
+      {{ notificacion }}
+    </div>
+  </form>
+</div>

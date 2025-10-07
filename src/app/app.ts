@@ -28,6 +28,8 @@ export class App {
       || this.router.url.startsWith('/recuperacionpaciente')
       || this.router.url.startsWith('/registropaciente')
       || this.router.url.startsWith('/modulopaciente')
-      || this.router.url.startsWith('/modulodoctor');
+      || this.router.url.startsWith('/modulodoctor')
+      || this.router.url.startsWith('/adminlogin')
+      || this.router.url.startsWith('/admincrud');
   }
 }

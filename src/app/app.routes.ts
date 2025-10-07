@@ -10,6 +10,8 @@ import { Servicios } from './pages/servicios/servicios';
 import { RecuperacionPaciente } from './logins/recuperacion-paciente/recuperacion-paciente';
 import { RegisterPaciente } from './logins/register-paciente/register-paciente';
 import { RecuperacionDoctor } from './logins/recuperacion-doctor/recuperacion-doctor';
+import { AdminLogin } from './logins/admin-login/admin-login';
+import { Admin } from './modulo/admin/admin';
 
 export const routes: Routes = [
     {path: '', component: Inicio},
@@ -23,5 +25,7 @@ export const routes: Routes = [
     {path: 'recuperacionpaciente', component: RecuperacionPaciente},
     {path: 'recuperaciondoctor', component: RecuperacionDoctor},
     {path: 'registropaciente', component: RegisterPaciente},
+    {path: 'adminlogin', component: AdminLogin},
+    {path: 'admincrud', component: Admin},
     {path: '**', redirectTo: ''}
 ];

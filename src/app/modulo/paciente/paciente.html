@@ -75,3 +75,14 @@
   </button>
 </div>
 
+<!-- Modal de confirmación de cita -->
+<div *ngIf="showModalConfirmacion" class="modal-backdrop">
+  <div class="modal-content">
+    <h2>¡Cita confirmada!</h2>
+    <p>Su cita ha sido verificada correctamente.<br>
+    Le esperamos en la fecha y hora seleccionada.<br>
+    ¡Gracias por confiar en Gotitas Dentales!</p>
+    <button class="btn-confirmar" (click)="irAlInicio()">Ir al inicio</button>
+  </div>
+</div>
+
