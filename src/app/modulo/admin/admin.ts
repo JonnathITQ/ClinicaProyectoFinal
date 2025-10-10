@@ -31,6 +31,9 @@ export class Admin implements OnInit {
   notificacion: string = '';
   notificacionColor: string = '';
   showModal: boolean = false;
+  eliminandoId: string | null = null;
+  showDeleteModal: boolean = false; // NUEVO
+  idDoctorEliminar: string | null = null; // NUEVO
 
   constructor(private http: HttpClient) {}
 
@@ -127,21 +130,52 @@ export class Admin implements OnInit {
     this.showModal = true;
   }
 
-  deleteDoctor(id: string | undefined) {
+  mostrarModalEliminar(id: string | undefined) {
+    if (!id) return;
+    this.idDoctorEliminar = id;
+    this.showDeleteModal = true;
+  }
+
+  cancelarEliminar() {
+    this.showDeleteModal = false;
+    this.idDoctorEliminar = null;
+  }
+
+  confirmarEliminar() {
+    if (!this.idDoctorEliminar) return;
+    this.eliminandoId = this.idDoctorEliminar;
+    this.showDeleteModal = false;
+    setTimeout(() => {
+      this.deleteDoctor(this.idDoctorEliminar!);
+      this.eliminandoId = null;
+      this.idDoctorEliminar = null;
+    }, 700);
+  }
+
+  animarDelete(id: string | undefined) {
     if (!id) return;
     if (confirm('¿Seguro que deseas eliminar este doctor?')) {
-      this.http.delete(`http://localhost:3000/api/doctor/${id}`)
-        .subscribe({
-          next: () => {
-            this.notificacion = 'Doctor eliminado correctamente';
-            this.notificacionColor = 'green';
-            this.getDoctores();
-          },
-          error: () => {
-            this.notificacion = 'Error al eliminar';
-            this.notificacionColor = 'red';
-          }
-        });
+      this.eliminandoId = id;
+      setTimeout(() => {
+        this.deleteDoctor(id);
+        this.eliminandoId = null;
+      }, 700); // Duración de la animación
     }
+  }
+
+  deleteDoctor(id: string | undefined) {
+    if (!id) return;
+    this.http.delete(`http://localhost:3000/api/doctor/${id}`)
+      .subscribe({
+        next: () => {
+          this.notificacion = 'Doctor eliminado correctamente';
+          this.notificacionColor = 'green';
+          this.getDoctores();
+        },
+        error: () => {
+          this.notificacion = 'Error al eliminar';
+          this.notificacionColor = 'red';
+        }
+      });
   }
 }

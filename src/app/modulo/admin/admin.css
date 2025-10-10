@@ -139,6 +139,27 @@
   border: 1px solid #e3e8ee;
 }
 
+.modal-content.modal-delete {
+  max-width: 340px;
+  min-width: 260px;
+  border-left: 8px solid #ef4444;
+  text-align: center;
+  padding: 32px 24px;
+}
+
+.modal-content.modal-delete h3 {
+  color: #ef4444;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.modal-content.modal-delete p {
+  color: #334155;
+  margin-bottom: 22px;
+  font-size: 1.1rem;
+}
+
 .modal-form .modal-row {
   display: flex;
   gap: 14px;
@@ -175,6 +196,23 @@
   margin-top: 22px;
   justify-content: flex-end;
   flex-direction: row; /* Asegura alineación horizontal */
+}
+
+/* Animación para fila eliminada */
+@keyframes fadeOutRow {
+  from { opacity: 1; }
+  to { opacity: 0; height: 0; padding: 0; margin: 0; }
+}
+
+.tr-eliminando {
+  animation: fadeOutRow 0.7s forwards;
+}
+
+/* Animación al botón eliminar al hacer clic */
+.btn-delete:active {
+  background: linear-gradient(90deg, #dc2626 60%, #991b1b 100%);
+  transform: scale(0.96);
+  box-shadow: 0 0 0 rgba(30, 64, 175, 0.00);
 }
 
 /* Responsive */

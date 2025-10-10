@@ -75,16 +75,28 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let doctor of doctores">
+      <tr *ngFor="let doctor of doctores" [class.tr-eliminando]="doctor._id === eliminandoId">
         <td>{{ doctor.nombre }}</td>
         <td>{{ doctor.apellido }}</td>
         <td>{{ doctor.correo }}</td>
         <td>{{ doctor.contrasena }}</td>
         <td>
           <button class="btn-edit" (click)="editDoctor(doctor)">Editar</button>
-          <button class="btn-delete" (click)="deleteDoctor(doctor._id)">Eliminar</button>
+          <button class="btn-delete" (click)="mostrarModalEliminar(doctor._id)">Eliminar</button>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <!-- Modal de confirmación para eliminar -->
+  <div *ngIf="showDeleteModal" class="modal-backdrop">
+    <div class="modal-content modal-delete">
+      <h3>¿Estás seguro?</h3>
+      <p>Esta acción eliminará el doctor permanentemente.</p>
+      <div class="modal-actions">
+        <button class="btn-delete" (click)="confirmarEliminar()">Sí, eliminar</button>
+        <button class="btn-cancel" (click)="cancelarEliminar()">Cancelar</button>
+      </div>
+    </div>
+  </div>
 </div>
